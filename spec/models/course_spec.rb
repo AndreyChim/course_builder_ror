@@ -24,9 +24,9 @@ RSpec.describe Course, type: :model do
   #    Course = Course.new(body: "Content of the body", title: "Title")
   #    expect(Course.save).to eq(true)
   #  end
-  #end
+  end
 
   #context "scopes tests" do
 
-  end
+  #end
 end
