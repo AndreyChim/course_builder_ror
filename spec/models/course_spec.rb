@@ -10,10 +10,10 @@ RSpec.describe Course, type: :model do
       expect(Course.valid?).to eq(false)
     end
 
-    it "ensures the body is present" do
-      Course = Course.new(title: "Title")
-      expect(Course.valid?).to eq(false)
-    end
+    #it "ensures the body is present" do
+    #  Course = Course.new(title: "Title")
+    #  expect(Course.valid?).to eq(false)
+    #end
 
   #  it "ensures the Course is active by default" do
   #    Course = Course.new(body: "Content of the body", title: "Title")
