@@ -6,13 +6,13 @@ RSpec.describe Course, type: :model do
 
   context "validations tests" do
     it "ensures the title is present" do
-      Course = Course.new(body: "Content of the body")
-      expect(Course.valid?).to eq(false)
+      course = Course.new(body: "Content of the body")
+      expect(course.valid?).to eq(false)
     end
 
     it "ensures the body is present" do
-      Course = Course.new(title: "Title")
-      expect(Course.valid?).to eq(false)
+      course = Course.new(title: "Title")
+      expect(course.valid?).to eq(false)
     end
 
   #  it "ensures the Course is active by default" do
