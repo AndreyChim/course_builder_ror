@@ -26,7 +26,23 @@ RSpec.describe Course, type: :model do
     end
   end
 
-  #context "scopes tests" do
+  
+  context "scopes tests" do
+    let(:params) { { body: "Content of the body", title: "Title", active: true } }
+    before(:each) do
+      Course.create(params)
+      Course.create(params)
+      Course.create(params)
+      Course.create(params.merge(active: false))
+      Course.create(params.merge(active: false))
+    end
 
-  #end
+    it "should return all active Courses" do
+      expect(Course.active.count).to eq(3)
+    end
+
+    it "should return all inactive Courses" do
+      expect(Course.inactive.count).to eq(2)
+    end
+  end
 end
