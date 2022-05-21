@@ -28,5 +28,5 @@ RSpec.describe Course, type: :model do
 
   #context "scopes tests" do
 
-  #end
+  end
 end
