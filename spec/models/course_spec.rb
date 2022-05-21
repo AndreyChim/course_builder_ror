@@ -2,7 +2,7 @@ require 'rails_helper'
 
 
 RSpec.describe Course, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  #pending "add some examples to (or delete) #{__FILE__}"
 
   context "validations tests" do
     it "ensures the title is present" do
