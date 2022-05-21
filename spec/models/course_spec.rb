@@ -22,7 +22,7 @@ RSpec.describe Course, type: :model do
 
     it "should be able to save Course" do
       course = Course.new(body: "Content of the body", title: "Title")
-      expect(Course.save).to eq(true)
+      expect(course.save).to eq(true)
     end
   end
 
