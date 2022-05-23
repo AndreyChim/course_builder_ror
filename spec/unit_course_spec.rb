@@ -1,5 +1,5 @@
 require 'rails_helper'
-#require 'test_helper'
+require 'test_helper'
 
 #class UnitCourseTest < ActiveSupport::TestCase
 
