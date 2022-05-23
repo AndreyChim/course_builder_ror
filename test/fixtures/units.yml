@@ -1,0 +1,14 @@
+unit_one:
+  title: "unit_one"
+  body: "Content of the body"
+  active: true
+
+unit_two:
+  title: "unit_two"
+  body: "Content of the body"
+  active: true
+
+unit_three:
+  title: "unit_three"
+  body: "Content of the body"
+  active: true

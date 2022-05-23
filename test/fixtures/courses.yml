@@ -1,0 +1,7 @@
+course:
+  id: 1
+  title: "course_one"
+  body: "Content of the body"
+  active: true
+  units: unit_one, unit_two, unit_three
+
