@@ -46,7 +46,5 @@ RSpec.describe Course, type: :model do
     end
   end
 
-  test "course_count" do
-    assert_equal 1, Course.count
-  end
+  
 end
