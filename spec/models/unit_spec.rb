@@ -38,7 +38,7 @@ RSpec.describe Unit, type: :model do
     end
 
     it "should return all active Courses" do
-      expect((Unit.where(active: :true)).count).to eq(3)
+      expect((Unit.where(active: :true)).count).to eq(6)
     end
 
     it "should return all inactive Courses" do
