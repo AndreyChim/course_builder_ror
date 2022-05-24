@@ -19,13 +19,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_22_131251) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "unit_courses", id: false, force: :cascade do |t|
+  create_table "units_courses", id: false, force: :cascade do |t|
     t.integer "unit_id"
     t.integer "course_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["course_id"], name: "index_unit_courses_on_course_id"
-    t.index ["unit_id"], name: "index_unit_courses_on_unit_id"
+    t.index ["course_id"], name: "index_units_courses_on_course_id"
+    t.index ["unit_id"], name: "index_units_courses_on_unit_id"
   end
 
   create_table "units", force: :cascade do |t|

@@ -37,11 +37,11 @@ RSpec.describe Unit, type: :model do
       Unit.create(params.merge(active: false))
     end
 
-    it "should return all active Courses" do
+    it "should return all active Units" do
       expect((Unit.where(active: :true)).count).to eq(3)
     end
 
-    it "should return all inactive Courses" do
+    it "should return all inactive Units" do
       expect((Unit.where(active: :false)).count).to eq(2)
     end
   end
