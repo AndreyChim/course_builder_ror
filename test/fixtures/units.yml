@@ -1,14 +1,17 @@
-unit_one:
-  title: "unit_one"
+unit_1:
+  title: "unit_1"
   body: "Content of the body"
   active: true
+ # id: 1
 
-unit_two:
-  title: "unit_two"
+unit_2:
+  title: "unit_2"
   body: "Content of the body"
   active: true
+ # id: 2
 
-unit_three:
-  title: "unit_three"
+unit_3:
+  title: "unit_3"
   body: "Content of the body"
   active: true
+ # id: 3

@@ -1,13 +1,13 @@
-course_one:
+course_1:
   id: 1
-  title: "course_one"
+  title: "course_1"
   body: "Content of the body"
   active: true
-  units: unit_one, unit_two, unit_three
+  units: unit_1, unit_2, unit_3
 
-course_two:
+course_2:
   id: 2
-  title: "course_two"
+  title: "course_2"
   body: "Content of the body"
   active: true
-  units: unit_one, unit_two, unit_three
+  units: unit_1, unit_2, unit_3
