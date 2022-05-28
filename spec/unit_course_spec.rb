@@ -4,7 +4,7 @@ require 'test_helper'
 
   RSpec.describe "unit course spec" do
     describe "habtm" do
- 
+      fixtures :all
 
     describe Unit do
       it "should have many courses" do
