@@ -40,6 +40,16 @@ require 'test_helper'
       #it { Unit.reflect_on_association(:units).macro.should   eq(:has_and_belongs_to_many) }
 
   
+
+
+
+  class UnitTest < ActiveSupport::TestCase
+    test "unit_count" do
+      assert_equal 3, Unit.count
+      assert_equal 2, Course.count
+    end
+  end
+  
   end
 end
 
