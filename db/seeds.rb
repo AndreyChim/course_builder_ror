@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+
+  Course.create(body: "Content of the body", title: "Title", active: true)
+
+  Unit.create(body: "Content of the body", title: "Title", active: true)
