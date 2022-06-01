@@ -1,2 +1,17 @@
-<h1>Units#index</h1>
-<p>Find me in app/views/units/index.html.erb</p>
+<div class="units blocks">
+
+  <% @units.each do |unit| %>
+    <div class="block">
+
+      <div class="columns">
+        <div class="column is-four-fifths">
+          <p class="columns">Объем <%= unit.body %></p>
+          <a class="is-size-5 columns" href="#"><%= unit.title %></a>
+        </div>
+        
+      </div>
+
+    </div>
+  <% end %>
+
+</div>
