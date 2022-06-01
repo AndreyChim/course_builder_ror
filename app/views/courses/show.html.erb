@@ -2,16 +2,9 @@
 
 <p><%= @course.volume %></p>
 
-
-<ul>
-  <li><%= link_to "Edit", edit_course_path(@course) %></li>
-  <li><%= link_to "Destroy", course_path(@course), data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
-                  } %></li>
-</ul>
-
+<br>
 <h2>Units</h2>
+<br>
 <% @course.units.each do |unit| %>
   <p>
     <strong>Title:</strong>
@@ -38,3 +31,11 @@
     <%= form.submit %>
   </p>
 <% end %>
+<br>
+<ul>
+  <li><%= link_to "Edit", edit_course_path(@course) %></li>
+  <li><%= link_to "Destroy", course_path(@course), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li>
+</ul>
