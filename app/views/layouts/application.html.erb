@@ -10,7 +10,25 @@
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
-  <body>
+<body style="height: 100vh;">
+<div class="columns" style="height: 100%;">
+  <div class="column is-one-fifth" style="height: 100%;">
+    <header class="pt-4" style="height: 100%; background: #e5e5e5">
+      <img class="px-4 pb-3" width="160" src="<%= '/logo.svg' %>" alt="Logo"/>
+
+      <nav class="menu">
+        <ul class="menu-list">
+                    <% ['courses', 'units', 'settings'].each do |item|
+            href = "/#{item}" %>
+            <li><a class="pl-4" href="<%= href %>"><%= item %></a></li>
+          <% end %>
+        </ul>
+      </nav>
+    </header>
+  </div>
+  <main class="column p-5">
     <%= yield %>
-  </body>
+  </main>
+</div>
+</body>
 </html>

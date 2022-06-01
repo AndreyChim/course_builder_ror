@@ -1,13 +1,15 @@
 course_1:
   id: 1
   title: "course_1"
-  body: "Content of the body"
+  volume: "Content of the body"
+  price: "7500"
   active: true
   units: unit_1, unit_2, unit_3
 
 course_2:
   id: 2
   title: "course_2"
-  body: "Content of the body"
+  volume: "Content of the body"
+  price: "0"
   active: true
   units: unit_1, unit_2, unit_3

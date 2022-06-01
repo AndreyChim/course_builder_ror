@@ -7,6 +7,7 @@
 #   Character.create(name: "Luke", movie: movies.first)
 
 
-  Course.create(body: "Content of the body", title: "Title", active: true)
+  Course.create(title: "Основная информация о виртуальных машинах", volume: "16 час. 4 модуля", price: "7500", active: true)
+  Course.create(title: "Стратегическое управление в образовании: методология и   кейсы проектных решений", volume: "24 час. 6 модулей", price: "0", active: true)
 
-  Unit.create(body: "Content of the body", title: "Title", active: true)
+ # Unit.create(body: "Content of the body", title: "Title", active: true)

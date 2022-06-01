@@ -1,32 +1,37 @@
-<header>
-  
-  <%= image_tag("logo.svg", width: 200) %>
+<div class="columns">
+  <div class="column is-four-fifth is-flex is-flex-direction-column is-justify-content-center">
+    <h1 class="has-text-left mb-0 mt-0 pb-0"> Список курсов </h1>
+  </div>
+  <div class="column is-one-fifth">
+    <div class="buttons is-right">
+      <button class="button is-success mt-3">
+        + Новый курс
+      </button>
+    </div>
+  </div>
+</div>
+<hr class="mt-3">
 
-  <h1>Courses</h1>
 
-<ul>
+<div class="courses blocks">
+
   <% @courses.each do |course| %>
-    <li>
-     <a href="/courses/<%= course.id %>">
-      <%= course.title %>
-      </a>
-    </li>
+    <div class="block">
+
+      <div class="columns">
+        <div class="column is-four-fifths">
+          <p class="columns">Объем <%= course.volume %></p>
+          <a class="is-size-5 columns" href="#"><%= course.title %></a>
+        </div>
+        <p class="column has-text-right is-size-5"><b><%= course.price %> $</b></p>
+      </div>
+
+    </div>
   <% end %>
-</ul> 
 
-<h1>Units</h1>
-
-<ul>
-  <% @units.each do |unit| %>
-    <li>
-     <a href="/units/<%= unit.id %>">
-      <%= unit.title %>
-      </a>
-    </li>
-  <% end %>
-</ul> 
-
- 
-
-
-    <div class="text-center"><%= render 'courses/form' %> </div>
+</div>
+<style>
+    .column a {
+        text-decoration: none;
+    }
+</style>
