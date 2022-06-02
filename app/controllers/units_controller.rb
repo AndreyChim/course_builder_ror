@@ -4,6 +4,11 @@ class UnitsController < ApplicationController
     # @courses = Course.all
   end
 
+  
+  def new
+    @course = Course.new
+  end
+  
   def show
     @unit = Unit.find(params[:id])
   end

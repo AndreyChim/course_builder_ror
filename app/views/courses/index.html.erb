@@ -4,9 +4,11 @@
   </div>
   <div class="column is-one-fifth">
     <div class="buttons is-right">
-      <button class="button is-success mt-3">
-        + Новый курс
-      </button>
+      
+  
+    <%= button_to "Create", course_unit_path, method: :post, data: { confirm: "Are you sure?" } %>
+  
+
     </div>
   </div>
 </div>

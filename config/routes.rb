@@ -12,9 +12,9 @@ Rails.application.routes.draw do
   resources :courses do
     resources :units
   end
-    resources :units do
-      resources :courses
-  end
+   # resources :units do
+   #   resources :courses
+  # end
   
 
   
