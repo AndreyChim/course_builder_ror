@@ -4,21 +4,25 @@ class CoursesController < ApplicationController
    # @units = Unit.all
   end
 
-  def new
-    @course = Course.new
-  end
-
-
   def show
-    @course = Course.find(params[:id])
+      @course = Course.find(params[:id])
+    # @course = Course.find(params[:course_id])
+    end
+  
+  def new
   end
-
 
 
 def create
-  @course = Course.create(params[:course_id])
+  @course = Course.new(course_params)
   #@unit = @course.units.create(unit_params)
-  redirect_to course_path(@course)
+ # redirect_to course_path(@course)
+
+ if @course.save
+  redirect_to @course
+else
+  render action: 'new'
+end
 end
 
 # private
@@ -26,5 +30,16 @@ end
 #     params.require(:unit).permit(:title, :body)
 #   end
 # end
+
+
+
+
+
+private
+
+  def course_params
+    params.require(:course).permit(:title, :volume)
+  end
+
 
 end

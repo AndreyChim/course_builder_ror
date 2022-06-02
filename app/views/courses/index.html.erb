@@ -6,8 +6,9 @@
     <div class="buttons is-right">
       
   
-    <%= button_to "Create", course_unit_path, method: :post, data: { confirm: "Are you sure?" } %>
-  
+    <%= button_to "Create", { action: "create" }, remote: true, form: { "data-type" => "json" } %>
+
+    
 
     </div>
   </div>
