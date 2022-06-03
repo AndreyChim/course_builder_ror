@@ -11,6 +11,7 @@ class UnitsController < ApplicationController
   
   def show
     @unit = Unit.find(params[:id])
+    @course = Course.find(params[:id])
   end
 
 
@@ -25,4 +26,9 @@ class UnitsController < ApplicationController
     def unit_params
       params.require(:unit).permit(:title, :body)
     end
+
+    def course_params
+      params.require(:course).permit(:title, :volume)
+    end
+    
 end

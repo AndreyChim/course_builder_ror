@@ -6,8 +6,13 @@
     <div class="buttons is-right">
       
   
-    <%= button_to "Create", { action: "create" }, remote: true, form: { "data-type" => "json" } %>
+    <%#= button_to "Create", { action: "create" }, remote: true, form: { "data-type" => "json" } #%>
 
+    <%#= button_to "Create", courses_path, method: :get #%>
+
+    <%= button_to "Create", courses_path(@course), method: :get %>
+
+    
     
 
     </div>
