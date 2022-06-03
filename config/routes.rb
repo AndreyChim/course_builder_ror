@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  resources :courses do
-    resources :units
-  end
+  
 
   root "courses#index"
 
@@ -25,10 +23,13 @@ Rails.application.routes.draw do
 
   #get '/courses/:id', to: 'courses#show', as: 'course'
 
-
-   # resources :units do
-   #   resources :courses
-  # end
+  resources :courses do
+    resources :units
+  end
+  
+  resources :units do
+      resources :courses
+   end
   
 
   

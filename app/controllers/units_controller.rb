@@ -1,7 +1,10 @@
 class UnitsController < ApplicationController
   def index
+    @course = Course.new(course_params)
+  #  @unit = @course.units.new(unit_params)
     @units = Unit.all
-    # @courses = Course.all
+    @courses = Course.all
+
   end
 
   
@@ -17,18 +20,29 @@ class UnitsController < ApplicationController
 
 
   def create
-    @course = Course.find(params[:course_id])
-    @unit = @course.units.create(unit_params)
-    redirect_to course_path(@course)
+    @course = Course.new(course_params)
+    # @unit = @course.units.create(unit_params)
+    @unit = @course.units.new(unit_params)
+
+    if @course.save
+      # redirect_to @course
+      # redirect_to course_path(@course)
+
+      redirect_to courses_path(@course)
+     else
+      render action: 'new'
+    end
+    
   end
 
   private
     def unit_params
-      params.require(:unit).permit(:title, :body)
+      # params.require(:unit).permit(:title, :body)
+      params.permit(:title, :body)
     end
 
     def course_params
-      params.require(:course).permit(:title, :volume)
+      params.permit(:title, :volume)
     end
-    
+
 end

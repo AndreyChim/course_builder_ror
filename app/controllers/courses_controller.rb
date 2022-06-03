@@ -1,7 +1,9 @@
 class CoursesController < ApplicationController
   def index
+    @course = Course.new(course_params)
+  #  @unit = @course.units.new(unit_params)
+    @units = Unit.all
     @courses = Course.all
-   # @units = Unit.all
   end
 
   def show
@@ -58,7 +60,8 @@ end
 private
 
   def course_params
-    params.require(:course).permit(:title, :volume)
+    # params.require(:course).permit(:title, :volume)
+    params.permit(:title, :volume)
   end
 
 
