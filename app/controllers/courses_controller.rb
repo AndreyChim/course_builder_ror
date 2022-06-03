@@ -60,7 +60,7 @@ end
 private
 
   def course_params
-    # params.require(:course).permit(:title, :volume)
+    #params.require(:course).permit(:title, :volume)
     params.permit(:title, :volume)
   end
 
