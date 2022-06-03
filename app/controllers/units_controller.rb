@@ -1,7 +1,7 @@
 class UnitsController < ApplicationController
   def index
     @course = Course.new(course_params)
-  #  @unit = @course.units.new(unit_params)
+  #  @unit = @course.units.new(unit_params
     @units = Unit.all
     @courses = Course.all
 
