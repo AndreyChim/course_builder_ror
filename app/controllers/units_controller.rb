@@ -29,8 +29,8 @@ class UnitsController < ApplicationController
       # redirect_to course_path(@course)
 
       redirect_to courses_path(@course)
-     else
-      render action: 'new'
+     #else
+     # render action: 'new'
     end
     
   end

@@ -3,36 +3,26 @@
     <h1 class="has-text-left mb-0 mt-0 pb-0"> Список курсов </h1>
   </div>
   <div class="column is-one-fifth">
-    <div class="buttons is-right">
-      
-  
-    <%#= button_to "Create", { action: "create" }, remote: true, form: { "data-type" => "json" } #%>
-
-    <%#= button_to "Create", courses_path, method: :get #%>
-
-    <%#= button_to "Create", courses_path(@course), method: :get #%>
-
-    <%= button_to "Create", courses_path(@course), method: :post %>
-
-    <%#= button_to "Create", course_units_path(@unit), method: :post #%>
-
-    <%#= link_to "Create", courses_path(id: course.id), method: :post #%>
-
-    
-
-
-    
-
-    <%#= link_to "Create", course_units_path(@course), method: :post #%>
-
-    
-
-    
-    
-
-    </div>
+    <form method="get" action="/courses/1">
+    <button class="button is-active has-background-grey-lighter is-pulled-rigth is-responsive">+Новый курс</button>
+    </form>
   </div>
 </div>
+   
+  
+  
+  
+    <%#div class="buttons is-right"#%>
+      
+  
+   
+    <%#= button_to "Create", href = "/courses/new", method: :get #%>
+    <%#= link_to "Create", course_units_path(@course), method: :post #%>
+
+
+   
+
+  
 <hr class="mt-3">
 
 

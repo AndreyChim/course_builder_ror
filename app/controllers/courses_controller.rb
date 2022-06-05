@@ -1,8 +1,12 @@
+require 'pry'
+
 class CoursesController < ApplicationController
+  before_action :set_course,  only: [:show, :edit, :update, :destroy]
+
   def index
-    @course = Course.new(course_params)
+  #  @course = Course.new(course_params)
   #  @unit = @course.units.new(unit_params)
-    @units = Unit.all
+   # @units = Unit.all
     @courses = Course.all
   end
 
@@ -12,20 +16,20 @@ class CoursesController < ApplicationController
     end
   
   def new
+    @course = Course.new
   end
 
 
 def create
-  @course = Course.new(course_params)
+  @course = Course.create(course_params)
+  
+ 
   #@unit = @course.units.create(unit_params)
  # redirect_to course_path(@course)
 
- if @course.save
-  redirect_to @course
-else
-  render action: 'new'
+ redirect_to course_path(@course) 
 end
-end
+
 
 # private
 #   def unit_params
@@ -41,7 +45,7 @@ def update
   @course = Course.find(params[:id])
 
   if @course.update(course_params)
-    redirect_to @course
+    redirect_to course_path(@course) 
   else
     render action: 'edit'
   end    
@@ -52,17 +56,25 @@ def destroy
   @course.destroy
 
   redirect_to courses_path
+
 end
-
-
 
 
 private
 
   def course_params
-    #params.require(:course).permit(:title, :volume)
-    params.permit(:title, :volume)
+ 
+ # binding.pry
+    params.require(:course).permit(:title, :volume, :price, :active)
+    #params.permit(:title, :volume, :price, :active)
+    
   end
 
+  
+
+  def set_course
+   #  binding.pry
+    @course = Course.find(params[:id])
+  end
 
 end
