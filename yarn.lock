@@ -20,6 +20,13 @@
   resolved "https://registry.yarnpkg.com/@hotwired/turbo/-/turbo-7.1.0.tgz#27e44e0e3dc5bd1d4bda0766d579cf5a14091cd7"
   integrity sha512-Q8kGjqwPqER+CtpQudbH+3Zgs2X4zb6pBAlr6NsKTXadg45pAOvxI9i4QpuHbwSzR2+x87HUm+rot9F/Pe8rxA==
 
+"@prettier/plugin-ruby@^3.1.2":
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/@prettier/plugin-ruby/-/plugin-ruby-3.1.2.tgz#184b154d666fb4af3c41cf6bd55c373bb3b3540f"
+  integrity sha512-0riBsZYu9MEdWgiZPKpZTdCbvLOk01xTvOs1wJbO7Hw4Fd/rX4Qhz+qsgJm+zloO99Zng88OQy96nSb6KUQHZg==
+  dependencies:
+    prettier ">=2.3.0"
+
 "@rails/actioncable@^7.0":
   version "7.0.3"
   resolved "https://registry.yarnpkg.com/@rails/actioncable/-/actioncable-7.0.3.tgz#71f08e958883af64f6a20489318b5e95d2c6dc5b"
@@ -248,6 +255,23 @@ picomatch@^2.0.4, picomatch@^2.2.1:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/picomatch/-/picomatch-2.3.1.tgz#3ba3833733646d9d3e4995946c1365a67fb07a42"
   integrity sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA==
+
+prettier-html-templates@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/prettier-html-templates/-/prettier-html-templates-0.1.0.tgz#dfa12bd71c032e3b796e8c645210c5614403575d"
+  integrity sha512-KdLveYzO2kJLiwUAebd5UFeKP8h3OqFhOiLbkgeIuS1WNoCRTyxW4KuyGfbh3F+Rp/2A6mipRxCq2zPi+//pmg==
+
+prettier-plugin-erb@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/prettier-plugin-erb/-/prettier-plugin-erb-0.4.0.tgz#5a2a86e02c6360481187aaadd165bc598eda4412"
+  integrity sha512-5RAdvT5BBf29hfC8GmqiMRFiD5g4BZGZDERZHvM5ouOor2TVT0jM0ntmCzFpS2Q32OkUAGFYsRxXDoYscvToXA==
+  dependencies:
+    prettier-html-templates "^0.1.0"
+
+prettier@>=2.3.0, prettier@^2.6.2:
+  version "2.6.2"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-2.6.2.tgz#e26d71a18a74c3d0f0597f55f01fb6c06c206032"
+  integrity sha512-PkUpF+qoXTqhOeWL9fu7As8LXsIUZ1WYaJiY/a7McAQzxjk82OF0tibkFXVCDImZtWxbvojFjerkiLb0/q8mew==
 
 readdirp@~3.6.0:
   version "3.6.0"

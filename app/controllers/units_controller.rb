@@ -1,6 +1,7 @@
 class UnitsController < ApplicationController
+  before_action :set_course,  only: [:show, :edit, :update, :destroy]
   def index
-    @course = Course.new(course_params)
+   # @course = Course.new(course_params)
   #  @unit = @course.units.new(unit_params
     @units = Unit.all
     @courses = Course.all
@@ -37,12 +38,14 @@ class UnitsController < ApplicationController
 
   private
     def unit_params
-      # params.require(:unit).permit(:title, :body)
-      params.permit(:title, :body)
+       params.require(:unit_id).permit(:title, :body)
+      #params.permit(:title, :body)
     end
 
     def course_params
-      params.permit(:title, :volume)
+      # params.permit(:title, :volume)
+     # binding.pry
+      params.require(:course_id).permit(:id, :title, :volume, :price, :active)
     end
 
 end
