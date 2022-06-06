@@ -5,8 +5,8 @@ Rails.application.routes.draw do
 
   # get 'units/index'
  
-  # get "/courses", to: "courses#index"
-  # get "/units", to: "units#index"
+  get "/courses", to: "courses#index"
+  get "/units", to: "units#index"
   
   # #get "/courses/index"
   

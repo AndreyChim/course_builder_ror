@@ -3,21 +3,26 @@
     <h1 class="has-text-left mb-0 mt-0 pb-0"> Список курсов </h1>
   </div>
   <div class="column is-one-fifth">
-    <%# <form method="get" action="/courses/1"> %>
-    <%# <a
+    <form method="get" action="/courses/1"> 
+     <a
             href="/courses/1"
             target="_blank"
             class="btn btn-primary"
           >
-          New course %>
-    <%# </form> %>
+          New course 
+     </form>
 
-          <a href="<%= courses_path(@course) %>" data-role="button" data-icon="info" data-mini="true">New course</a>
+           <%# <% <a   href="<%= courses_path(@course) %>"
+               <%# data-role="button" %>
+               <%# data-icon="info" %>
+               <%# data-mini="true" %>
+           <%# > %>
+           <%# New course </a> %> 
   </div>
   </div>
     <hr class="mt-3">
 
-<div class="courses blocks">
+  <div class="courses blocks">
 
   <% @courses.each do |course| %>
     <div class="block">
