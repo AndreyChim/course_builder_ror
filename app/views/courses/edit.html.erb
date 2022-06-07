@@ -1,14 +1,21 @@
 <h1>Edit course</h1>
 
-<%= form_for :course, url: edit_course_path(@course), method: :put do |f| %>
+<%# <%= form_for :course, url: edit_course_path(@course), method: :patch do |f| %> 
+
+<%= form_with model: @course do |f| %>
 	<p>
 		<%= f.label :title %><br />
 		<%= f.text_field :title %>
 	</p>
 
 	<p>
-		<%= f.label :text %><br />
-		<%= f.text_area :text %>
+		<%= f.label :volume %><br />
+		<%= f.text_area :volume %>
+	</p>
+
+	<p>
+		<%= f.label :price %><br />
+		<%= f.text_area :price %>
 	</p>
 
 	<p>
@@ -16,3 +23,7 @@
 	</p>
 
 <% end %>
+
+<div>
+  <%= button_to 'Back', courses_path, method: :get %>
+</div>

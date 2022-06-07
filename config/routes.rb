@@ -13,6 +13,9 @@ Rails.application.routes.draw do
   # get "/courses/:id", to: "courses#show"
   # get "/units/:id",   to: "units#show"
 
+  patch "/courses/:id", to: "courses#show"
+  
+
   # get "/courses/:id", to: "courses#index"
   # get "/units/:id",   to: "units#index"
 

@@ -12,7 +12,8 @@ class CoursesController < ApplicationController
   end
 
   def edit
-    @course = Course.find(params[:course_id])
+    # @course = Course.find(params[:course_id])
+    @course = Course.find(params[:id])
   end
 
   def show
@@ -46,6 +47,7 @@ class CoursesController < ApplicationController
   end
 
   def set_course
+   # binding.pry
     @course = Course.find(params[:id])
   end
 end
