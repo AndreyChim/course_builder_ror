@@ -16,30 +16,45 @@ class UnitsController < ApplicationController
   
   def show
     @unit = Unit.find(params[:id])
-    @course = Course.find(params[:id])
+    @course = Course.find(params[:course_id])
   end
-
-
 
   def create
-    # @course = Course.new(course_params)
-    Course.create(title: "Основная информация о виртуальных машинах", volume: "16 час. 4 модуля", price: "7500", active: true)
-    # @unit = @course.units.create(unit_params)
-    # @unit = @course.units.new(unit_params)
-
-    Unit.create(body: "Content of the body", title: "Title", active: true)
-    # redirect_to course_path(@course)
-    redirect_to courses_path
-    # if @course.save
-      # redirect_to @course
-      # redirect_to course_path(@course)
-
-      # redirect_to courses_path(@course)
-     #else
-     # render action: 'new'
-    # end
-    
+    @course = Course.find(params[:course_id])
+    @unit = @course.units.build(unit_params)
+    @unit.save
+    if @unit.save
+      flash[:success] = "Unit created!"
+      redirect_to courses_path(@course)
+    else
+      render 'new'
+    end
   end
+
+  def edit
+  end
+
+  def update
+    @unit = Unit.find(params[:id])
+    @unit.update(course_params)
+
+    redirect_to course_path
+  end
+
+  def destroy
+    @unit = Unit.find(params[:id])
+    if @unit.present?
+      @unit.destroy
+    end
+    redirect_to courses_path
+  end
+
+  private
+
+  def unit_params
+    params.permit(:title, :body)
+  end
+end
 
   # private
     # def unit_params
@@ -56,6 +71,6 @@ class UnitsController < ApplicationController
       # binding.pry
       #@course = Course.find(params[:course_id])
       # @course = Course.find(params[:id])
-      @course = Course.find(1)
+      @course = Course.find(params[:course_id])
     end
 end
