@@ -1,39 +1,44 @@
 <h1><%= @course.title %></h1>
 
-<p><%= @course.volume %></p>
+<%# <p><%= @course.volume %>
 
 <br>
-<h2>Units</h2>
+<h2>Course <%= @course.id %></h2>
 <br>
-<% @course.units.each do |unit| %>
+<%# <% @course.units.each do |unit| %> 
   <p>
     <strong>Title:</strong>
-    <%= unit.title %>
+    <%= @course.title %>
   </p>
 
   <p>
-    <strong>Unit:</strong>
-    <%= unit.body %>
+    <strong>Volume:</strong>
+    <%= @course.volume %>
   </p>
-<% end %>
 
-<h2>Add a unit:</h2>
+  <p>
+    <strong>Price:</strong>
+    <%= @course.price %>
+  </p>
+<%# <% end %> 
+
+<%# <h2>Add a unit:</h2>
 <%= form_with model: [ @course, @course.units.build ] do |form| %>
-  <p>
-    <%= form.label :title %><br>
-    <%= form.text_field :title %>
-  </p>
-  <p>
-    <%= form.label :body %><br>
-    <%= form.text_area :body %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
-<% end %>
+  <%# <p>
+    <%= form.label :title %>
+    <%# <%= form.text_field :title %> 
+  <%# </p> %>
+  <%# <p> %>
+    <%# <%= form.label :volume %>
+    <%# <%= form.text_field :volume %> 
+  <%# </p> %>
+  <%# <p> %>
+    <%# <%= form.submit %> 
+  <%# </p> %>
+<%# <% end %> 
 <br>
 <ul>
-  <li><%= link_to "Edit", course_path(@course) %></li>
+  <li><%= link_to "Edit", edit_course_path(@course) %></li>
   <li><%= link_to "Destroy", course_path(@course), data: {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"

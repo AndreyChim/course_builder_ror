@@ -1,31 +1,31 @@
-<h1><%= @unit.title %></h1>
+<h1><%= @course.title %></h1>
 
-<p><%= @unit.body %></p>
+<p><%= @course.volume %></p>
 
 <br>
-<h2>Courses</h2>
+<h2>Units</h2>
 <br>
-<% @unit.courses.each do |course| %>
+<% @course.units.each do |unit| %>
   <p>
     <strong>Title:</strong>
-    <%= course.title %>
+    <%= unit.title %>
   </p>
 
   <p>
     <strong>Unit:</strong>
-    <%= course.volume %>
+    <%= unit.body %>
   </p>
 <% end %>
 
-<h2>Add a course:</h2>
-<%= form_with model: [ @unit, @unit.courses.build ] do |form| %>
+<h2>Add a unit:</h2>
+<%= form_with model: [ @course, @course.units.build ] do |form| %>
   <p>
     <%= form.label :title %><br>
     <%= form.text_field :title %>
   </p>
   <p>
-    <%= form.label :volume %><br>
-    <%= form.text_area :volume %>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
   </p>
   <p>
     <%= form.submit %>
@@ -33,9 +33,11 @@
 <% end %>
 <br>
 <ul>
-  <li><%= link_to "Edit", edit_unit_path(@unit) %></li>
-  <li><%= link_to "Destroy", unit_path(@unit), data: {
+  <li><%= link_to "Edit", course_path(@course) %></li>
+  <li><%= link_to "Destroy", course_path(@course), data: {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
                   } %></li>
 </ul>
+
+

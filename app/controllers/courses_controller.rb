@@ -1,5 +1,7 @@
 class CoursesController < ApplicationController
-  before_action :set_course, only: [:show, :edit, :update, :destroy]
+   before_action :set_course, only: [:show, :edit, :update, :destroy]
+  # before_action :set_course, only: [:edit, :update, :destroy]
+  
 
   def index
     @courses=Course.all
@@ -10,11 +12,12 @@ class CoursesController < ApplicationController
   end
 
   def edit
+    @course = Course.find(params[:course_id])
   end
 
   def show
-    @unit = Unit.find(params[:id])
-    @course = Course.find(params[:course_id])
+     @unit = Unit.find(params[:id])
+     @course = Course.find(params[:id])
   end
 
   def create

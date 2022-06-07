@@ -54,7 +54,7 @@ class UnitsController < ApplicationController
   def unit_params
     params.permit(:title, :body)
   end
-end
+
 
   # private
     # def unit_params
@@ -71,6 +71,7 @@ end
       # binding.pry
       #@course = Course.find(params[:course_id])
       # @course = Course.find(params[:id])
-      @course = Course.find(params[:course_id])
+      # @course = Course.find(params[:course_id])
+      @course = Course.find(params[:id])
     end
 end
