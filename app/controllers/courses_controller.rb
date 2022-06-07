@@ -1,6 +1,10 @@
 class CoursesController < ApplicationController
-   before_action :set_course, only: [:show, :edit, :update, :destroy]
+  before_action :set_course, only: [:show, :edit, :update, :destroy]
   # before_action :set_course, only: [:edit, :update, :destroy]
+  # skip_before_action :verify_authenticity_token
+  
+  # protect_from_forgery with: :null_session
+  # skip_before_action :verify_authenticity_token, only: [:update, :edit]
   
 
   def index
@@ -13,7 +17,10 @@ class CoursesController < ApplicationController
 
   def edit
     # @course = Course.find(params[:course_id])
-    @course = Course.find(params[:id])
+    # @course = Course.find(params[:id])
+    # @course.update(course_params)
+
+    # redirect_to course_path(@course)
   end
 
   def show
@@ -29,10 +36,22 @@ class CoursesController < ApplicationController
   end
 
   def update
-    @course.update(course_params)
+    # @course.update(course_params)
 
-    redirect_to course_path(@course)
+    @course = Course.find_by_id(params[:id])
+   
+    if @course && @course.update_attributes(@course_params)
+      flash[:success] = "Course successfully Updated!"
+      redirect_to course_path(@course)
+
+     else
+      flash[:danger] = "Course unsuccessfully Updated!"
+     end
+    # redirect_to course_path(@course)
+    # redirect_to course_path(@course)
+    
   end
+
 
   def destroy
     @course.destroy

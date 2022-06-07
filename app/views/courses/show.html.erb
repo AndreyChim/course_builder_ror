@@ -1,4 +1,4 @@
-<h1><%= @course.title %></h1>
+<%# <h1><%= @course.title %>
 
 <%# <p><%= @course.volume %>
 
@@ -37,23 +37,24 @@
   <%# </p> %>
 <%# <% end %> 
 <br>
+<br>
 <ul>
   <li><%= link_to "Edit", edit_course_path(@course) %></li>
+  <br>
   <li><%= link_to "Destroy", course_path(@course), data: {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
                   } %></li>
 </ul>
-
-
-
+ <br>
+ <br>
 <div class="columns">
   <div class="column">
-    <h4 class="subtitle is-4 is-pulled-left">Список модулей:</h4>
+    <h4 class="subtitle is-4 is-pulled-left">List of units:</h4>
   </div>
   <div class="column is-one-fifth">
     <div>
-      <%= button_to '+Новый модуль', new_course_unit_path(@course), method: :get %>
+      <%= button_to '+New unit', new_course_unit_path(@course), method: :get %>
     </div>
   </div>
 </div>
@@ -63,7 +64,9 @@
   <% end %>
 </div>
 
-
+<br>
+<br>
+<br>
 <div>
   <%= button_to 'Back', courses_path, method: :get %>
 </div>

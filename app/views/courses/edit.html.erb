@@ -1,21 +1,35 @@
-<h1>Edit course</h1>
+<h1>Edit course <%= "#{@course.id}" %></h1>
+<br>
 
 <%# <%= form_for :course, url: edit_course_path(@course), method: :patch do |f| %> 
 
+<%# https://stackoverflow.com/questions/941594/understanding-the-rails-authenticity-token %>
+<%# https://docs.w3cub.com/rails~7.0/actionview/helpers/formtaghelper#method-i-form_tag %>
+<%# https://guides.rubyonrails.org/v2.3.8/form_helpers.html %>
+<%# https://stackoverflow.com/questions/40112715/no-route-matches-patch-users-1-edit %>
+
+<%# https://stackoverflow.com/questions/36233210/how-do-i-nest-models-using-a-form-tag-in-rails-4 %>
+
+<%# <%= form_tag('/courses', method: :post, remote: true) do -%> 
+ <%# <%= fields_for :sale_qualifier do |ff| %>    
+   <%# <%= ff.fields_for :answer_attributes do |answer| %> 
+
+<%# <%= form_tag do %> 
+  <%= form_tag "/courses/#{@course.id}/edit" do %>
 <%= form_with model: @course do |f| %>
 	<p>
 		<%= f.label :title %><br />
-		<%= f.text_field :title %>
+		<%= f.text_area :title, rows: 5, style: "width: 400px" %>
 	</p>
 
 	<p>
 		<%= f.label :volume %><br />
-		<%= f.text_area :volume %>
+		<%= f.text_field :volume %>
 	</p>
 
 	<p>
 		<%= f.label :price %><br />
-		<%= f.text_area :price %>
+		<%= f.text_field :price %>
 	</p>
 
 	<p>
@@ -23,7 +37,9 @@
 	</p>
 
 <% end %>
+<% end %>
 
+<br>
 <div>
   <%= button_to 'Back', courses_path, method: :get %>
 </div>
