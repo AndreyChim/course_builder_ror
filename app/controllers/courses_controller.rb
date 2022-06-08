@@ -43,7 +43,9 @@ class CoursesController < ApplicationController
     respond_to do |format|
       format.html do
         
-          if @course.update_attributes!(course_params)
+          # if @course.update_attributes(course_params)
+            if @course.update(course_params)
+            
             @course.errors.messages.inspect
             Rails.logger.info(@course.errors.messages.inspect)
             

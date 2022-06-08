@@ -24,7 +24,10 @@
 
 
 
-<%= form_for :course, { url: :course, method: :patch } do |f| %>
+<%# <%= form_for :course, { url: :course, method: :patch } do |f| %> 
+
+<%= form_for :course, url: course_path(@course), method: :put do |f| %>
+
 	<p>
 		<%= f.label :title %><br />
 		<%= f.text_area :title, rows: 5, style: "width: 400px" %>
