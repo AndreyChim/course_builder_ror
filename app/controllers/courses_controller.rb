@@ -8,23 +8,17 @@ class CoursesController < ApplicationController
   
 
   def index
-    @courses=Course.all
+    @courses = Course.all
   end
 
   def new
     @course = Course.new
   end
 
-  def edit
-    # @course = Course.find(params[:course_id])
-    # @course = Course.find(params[:id])
-    # @course.update(course_params)
-
-    # redirect_to course_path(@course)
-  end
+  
 
   def show
-     @unit = Unit.find(params[:id])
+    #  @unit = Unit.find(params[:id])
      @course = Course.find(params[:id])
   end
 
@@ -35,28 +29,71 @@ class CoursesController < ApplicationController
      redirect_to root_path
   end
 
-  def update
+   def update
     # @course.update(course_params)
 
-    @course = Course.find_by_id(params[:id])
-   
-    if @course && @course.update_attributes(@course_params)
-      flash[:success] = "Course successfully Updated!"
-      redirect_to course_path(@course)
+    # @course = Course.find_by_id(params[:id])
+    # @course.update_attributes(@course_params)
 
-     else
-      flash[:danger] = "Course unsuccessfully Updated!"
-     end
-    # redirect_to course_path(@course)
-    # redirect_to course_path(@course)
+    # load existing object again from URL param
+    @course = Course.find(params[:id])
+    #binding.pry
+    # respond_to block
+
+    respond_to do |format|
+      format.html do
+        
+          if @course.update_attributes!(course_params)
+            @course.errors.messages.inspect
+            Rails.logger.info(@course.errors.messages.inspect)
+            
+          # success message
+          flash[:success] = 'Course updated successfully'
+          # redirect to index
+          redirect_to course_url
+        else
+          # error message
+          flash.now[:error] = 'Error: Course could not be updated'
+          # render edit
+          render :edit #, locals: { question: question }
+    
+        end
+      end
+    end
     
   end
 
+  def edit
+          
+      @course = Course.find(params[:id])
+      respond_to do |format|
+        format.html { render :edit}  #, locals: { @course: @course } }
+      end
+
+    end
 
   def destroy
-    @course.destroy
+    # @course.destroy
+    # redirect_to courses_path
 
-    redirect_to courses_path
+    @course = Course.find(params[:id])
+    # respond_to block
+    respond_to do |format|
+      format.html do
+        if @course.destroy
+          # success message
+          flash[:success] = 'Course deleted successfully'
+          # redirect to index
+          redirect_to course_url
+        else
+          # error message
+          flash.now[:error] = 'Error: Course could not be deleted'
+          # render edit
+          render :edit #, locals: { question: question }
+    
+        end
+      end
+    end
   end
 
   private
@@ -66,7 +103,8 @@ class CoursesController < ApplicationController
   end
 
   def set_course
-   # binding.pry
+  #  binding.pry
     @course = Course.find(params[:id])
   end
+
 end

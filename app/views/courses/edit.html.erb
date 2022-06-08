@@ -3,20 +3,28 @@
 
 <%# <%= form_for :course, url: edit_course_path(@course), method: :patch do |f| %> 
 
-<%# https://stackoverflow.com/questions/941594/understanding-the-rails-authenticity-token %>
-<%# https://docs.w3cub.com/rails~7.0/actionview/helpers/formtaghelper#method-i-form_tag %>
-<%# https://guides.rubyonrails.org/v2.3.8/form_helpers.html %>
-<%# https://stackoverflow.com/questions/40112715/no-route-matches-patch-users-1-edit %>
-
-<%# https://stackoverflow.com/questions/36233210/how-do-i-nest-models-using-a-form-tag-in-rails-4 %>
 
 <%# <%= form_tag('/courses', method: :post, remote: true) do -%> 
  <%# <%= fields_for :sale_qualifier do |ff| %>    
    <%# <%= ff.fields_for :answer_attributes do |answer| %> 
 
 <%# <%= form_tag do %> 
-  <%= form_tag "/courses/#{@course.id}/edit" do %>
-<%= form_with model: @course do |f| %>
+  <%# <%= form_tag "/courses/#{@course.id}/edit" do |f|%> 
+
+  <%# <%= form_tag("/courses/#{@course.id}", method: :patch, remote: true) do -%> 
+    <%# <%= fields_for :course_attributes  do |ff| %>
+	
+  
+
+<%# <%= form_with model: @course do |f| %> 
+<%# <%= form_with model: question, url: mc_question_path, method: :patch, local: true, scope: :mc_question do |f| %> 
+
+<%# <%= form_with model: @course, url: course_path, method: :patch, local: true, scope: :course do |f| %> 
+
+
+
+
+<%= form_for :course, { url: :course, method: :patch } do |f| %>
 	<p>
 		<%= f.label :title %><br />
 		<%= f.text_area :title, rows: 5, style: "width: 400px" %>
@@ -36,7 +44,7 @@
 		<%= f.submit %>
 	</p>
 
-<% end %>
+<%# <% end %>
 <% end %>
 
 <br>

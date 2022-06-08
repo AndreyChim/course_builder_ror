@@ -39,7 +39,10 @@
 <br>
 <br>
 <ul>
-  <li><%= link_to "Edit", edit_course_path(@course) %></li>
+  <li><%= link_to "Edit", edit_course_path(@course),  data: {
+                    turbo_method: :get
+                    
+                  } %></li>
   <br>
   <li><%= link_to "Destroy", course_path(@course), data: {
                     turbo_method: :delete,

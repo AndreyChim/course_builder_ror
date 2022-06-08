@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get "/courses", to: "courses#index"
   get "/units", to: "units#index"
   
-  # https://stackoverflow.com/questions/40112715/no-route-matches-patch-users-1-edit
+  
   patch '/courses/:id/edit', to: 'courses#edit'
   
   # #get "/courses/index"
@@ -17,6 +17,12 @@ Rails.application.routes.draw do
   # get "/units/:id",   to: "units#show"
 
   patch "/courses/:id", to: "courses#show"
+  post  "/courses/:id", to: "courses#edit"
+  put  "/courses/:id/edit", to: "courses#edit"
+  
+  get 'courses/:id/edit', to: 'courses#edit', as: 'edit_course' # edit
+  patch 'courses/:id', to: 'courses#update' # update (as needed)
+  put 'courses/:id', to: 'courses#update' # update (full replacement)
   
 
   # get "/courses/:id", to: "courses#index"
