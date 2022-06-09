@@ -19,9 +19,13 @@
 
 <%# <%= form_for :course, url: new_course_unit_path(@unit), method: :post do |f| %>  
 
-<%# <%= form_for([course: @course, unit: @unit]) do |f| %> 
+<%# <%= form_with([course: @course, unit: @unit]) do |f| %>
 
-<%= form_with url: course_units_path, method: "post" do |f| %>
+<%# <%= form_with(unit: @unit, method: :post) do |f| %> 
+
+<%# # <%# <%= form_with url: new_course_unit_path, method: "post" do |f|  %>
+
+  <%= form_with(model: @unit, method: :post) do |f| %>
 
 	<p>
 		<%= f.label :title %><br /><br>

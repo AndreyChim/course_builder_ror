@@ -25,7 +25,8 @@ Rails.application.routes.draw do
   put 'courses/:id', to: 'courses#update' # update (full replacement)
 
   post  "/courses/:id/units", to: "units#create"
-  post  "/courses/:id/units", to: "units#create"
+  post  "/courses/:id/units/new", to: "units#create"
+  post  "/units/", to: "units#create"
 
   
 
