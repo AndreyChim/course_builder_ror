@@ -18,7 +18,7 @@ class CoursesController < ApplicationController
   
 
   def show
-    #  @unit = Unit.find(params[:id])
+    # @unit = Unit.find(params[:id])
      @course = Course.find(params[:id])
   end
 
@@ -101,7 +101,7 @@ class CoursesController < ApplicationController
   private
 
   def course_params    
-    params.require(:course).permit(:title, :volume, :price, :active)
+    params.require(:course).permit(:title, :description, :volume, :price, :active)
   end
 
   def set_course

@@ -12,6 +12,11 @@
   </p>
 
   <p>
+    <strong>Description:</strong>
+    <%= @course.description %>
+  </p>
+  
+  <p>
     <strong>Volume:</strong>
     <%= @course.volume %>
   </p>
@@ -55,10 +60,42 @@
   <div class="column">
     <h4 class="subtitle is-4 is-pulled-left">List of units:</h4>
   </div>
-  <div class="column is-one-fifth">
-    <div>
-      <%= button_to '+New unit', new_course_unit_path(@course), method: :get %>
+
+  <hr class="mt-3">
+
+  <div class="units blocks">
+
+  <% @course.units.each do |unit| %>
+    <div class="block">
+
+      <div class="columns">
+        <div class="column is-four-fifths">
+          <p class="columns">Body <%= unit.body %></p>
+          <a class="is-size-5 columns" href="#"><%= unit.title %></a>
+        </div>
+        
+      </div>
+
     </div>
+  <% end %>
+          
+    
+
+  <%# <div class="column is-one-fifth"> %>
+    <div>
+
+     <form method="get" action="/courses/course.id/units/new"> 
+     <a
+            href= <%= "/courses/#{@course.id}/units/new" %>
+
+            target="_blank"
+            class="btn btn-primary"
+          >
+          New unit 
+     </form>
+
+      <%# <%= button_to '+New unit', new_course_unit_path(@unit), method: :get %> 
+    <%# </div> %>
   </div>
 </div>
 <div>
@@ -66,6 +103,8 @@
     <h4 class="subtitle is-4"><%= link_to unit.title , "/courses/#{@course.id}/units/#{unit.id}" %></h4>
   <% end %>
 </div>
+
+
 
 <br>
 <br>

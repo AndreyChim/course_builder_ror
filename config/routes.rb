@@ -23,6 +23,10 @@ Rails.application.routes.draw do
   get 'courses/:id/edit', to: 'courses#edit', as: 'edit_course' # edit
   patch 'courses/:id', to: 'courses#update' # update (as needed)
   put 'courses/:id', to: 'courses#update' # update (full replacement)
+
+  post  "/courses/:id/units", to: "units#create"
+  post  "/courses/:id/units", to: "units#create"
+
   
 
   # get "/courses/:id", to: "courses#index"

@@ -30,14 +30,19 @@
 
 	<p>
 		<%= f.label :title %><br />
-		<%= f.text_area :title, rows: 5, style: "width: 400px" %>
+		<%= f.text_area :title, rows: 3, style: "width: 400px" %>
 	</p>
+
+	<p>
+       <%= f.label :description %><br />
+		<%= f.text_area :description, rows: 3, style: "width: 400px" %>
+    </p>
 
 	<p>
 		<%= f.label :volume %><br />
 		<%= f.text_field :volume %>
 	</p>
-
+	 
 	<p>
 		<%= f.label :price %><br />
 		<%= f.text_field :price %>

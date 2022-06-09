@@ -30,8 +30,9 @@
       <div class="columns">
         <div class="column is-four-fifths">
           <h5 class="title is-5"><a href="<%= "/courses/#{course.id}" %> "><%= course.title %></a></h5>
-          <p class="columns">Номер <%= course.id %></p>
-          <p class="columns">Объем <%= course.volume %></p>
+          <p class="columns">Number: <%= course.id %></p>
+            <p class="columns">Description: <%= course.description %></p>
+          <p class="columns">Volume: <%= course.volume %></p>
           <%# <a class="is-size-5 columns" href="<%= "/courses/#{course.id}"><%= course.title %></a> 
 
           
