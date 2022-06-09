@@ -102,9 +102,9 @@ class UnitsController < ApplicationController
 private
 
 def set_unit
-  # @course = Course.find(params[:course_id])
+  @course = Course.find(params[:course_id])
   # @course = Course.find(params[:id])
-  @course = Course.find(2)
+  # @course = Course.find(2)
 end
 
 def unit_params

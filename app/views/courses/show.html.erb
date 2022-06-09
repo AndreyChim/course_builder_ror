@@ -83,17 +83,7 @@
     
 
   <%# <div class="column is-one-fifth"> %>
-    <div>
-
-     <form method="get" action="/courses/course.id/units/new"> 
-     <a
-            href= <%= "/courses/#{@course.id}/units/new" %>
-
-            target="_blank"
-            class="btn btn-primary"
-          >
-          New unit 
-     </form>
+   
 
       <%# <%= button_to '+New unit', new_course_unit_path(@unit), method: :get %> 
     <%# </div> %>
@@ -105,12 +95,29 @@
     <h4 class="subtitle is-4"><%= link_to unit.title , "/courses/#{@course.id}/units/#{unit.id}" %></h4>
   <% end %>
 </div>
-</div>
+ <br>
+  <br>
+
+<ul>
+  <li>
+  <form method="get" action="/courses/course.id/units/new"> 
+     <a
+            href= <%= "/courses/#{@course.id}/units/new" %>
+
+            target="_blank"
+            class="btn btn-primary"
+          >
+          New unit 
+     </form>
+  
+  </li>
+  <br>
+  <li>
+   <%= button_to 'Back to the list of courses', courses_path, method: :get %>
+  
+  </li>
+</ul>
+     </div>
 
 
-<br>
-<br>
-<br>
-<div>
-  <%= button_to 'Back', courses_path, method: :get %>
 

@@ -34,10 +34,17 @@
 <br>
 <ul>
   <li><%= link_to "Edit", edit_course_unit_path(@unit) %></li>
+  <br>
   <li><%= link_to "Destroy", course_unit_path(@unit), data: {
                     turbo_method: :delete,
                     turbo_confirm: "Are you sure?"
                   } %></li>
-</ul>
+
+<br>
+<li>
+   <%= button_to 'Back to the course', course_path(@course), method: :get %>
+  
+  </li>
+  </ul>
 
 
