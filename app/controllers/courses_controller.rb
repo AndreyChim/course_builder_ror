@@ -9,6 +9,7 @@ class CoursesController < ApplicationController
 
   def index
     @courses = Course.all
+    # @units = Unit.all
   end
 
   def new
@@ -19,6 +20,7 @@ class CoursesController < ApplicationController
 
   def show
     # @unit = Unit.find(params[:id])
+     @units =  Unit.all
      @course = Course.find(params[:id])
   end
 
