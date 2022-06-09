@@ -25,7 +25,9 @@
 
 <%# # <%# <%= form_with url: new_course_unit_path, method: "post" do |f|  %>
 
-  <%= form_with(model: @unit, method: :post) do |f| %>
+  <%# <%= form_with(model: @unit, method: :post) do |f| %> 
+
+  <%= form_for(@unit) do |f| %>
 
 	<p>
 		<%= f.label :title %><br /><br>
