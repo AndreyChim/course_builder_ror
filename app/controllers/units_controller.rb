@@ -1,5 +1,6 @@
 class UnitsController < ApplicationController
-  # before_action :set_course,  only: [:show, :edit, :update, :destroy]
+  
+  
   before_action :set_unit, only: [:destroy, :update, :edit, :create, :new, :show]
   
   def show
@@ -30,18 +31,40 @@ class UnitsController < ApplicationController
   
 
 
-  def create
-    @unit = @course.units.build(unit_params)
-  #  binding.pry
-    @unit.save
-    if @unit.save
-      redirect_to course_path(@course)
-    else
-      render 'new'
-    end
-  end
+  # def create
+  #   @course =Course.find(params[:id])
+  #   @unit = @course.units.build(unit_params)
+  #   binding.pry
+  #   @unit.save
+  #   if @unit.save
+  #     redirect_to course_path(@course)
+  #   else
+  #     render 'new'
+  #   end
+  # end
 
- 
+  def create
+    #  @course = Course(course_params)
+    #  @course = Course.find(params[:id])
+    # @unit = @course.units.build(unit_params)
+    # @unit.save
+
+    # @unit = Unit.find(params[:id])
+   
+    #  @unit.save(unit_params)
+
+    #  @profile = @user.profile.build
+
+    #  @unit = @course.units.build(unit_params)
+    #  @unit.save
+
+
+      @course = Course.find(params[:course_id])
+      @unit = @course.units.create(unit_params)
+    
+    #  redirect_to courses_path(@course)
+     redirect_to root_path
+  end
 
 
   def edit
@@ -110,4 +133,5 @@ end
 def unit_params
   params.require(:unit).permit(:title, :body)
 end
+
 end

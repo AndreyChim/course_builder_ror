@@ -29,7 +29,21 @@
 
   <%# <%= form_for(@unit, method: :post) do |f| %>
 
-	<%= form_for :unit, url: new_course_unit_path do |f| %>
+  
+
+	<%# <%= form_for :unit, url: new_course_unit_path do |f| %>
+
+	<%# <%= form_with url: course_units_path, method: "post" do |f| %> 
+
+	<%# <%= form_with(model: @unit, method: :post) do |f| %> 
+
+	<%# <%= form_for @hotel.ratings.find_or_create_by(user_id: user_id) do |f| %>  
+
+	  <%= form_with(model: @unit, url: "/courses/#{@course.id}/units/" , method: "post") do |f| %>
+
+	  <%# <% = form_for @unit do |f| %>
+  <%# = f.collection_select :course_id, Course.all, :id, :name, :prompt => true %>
+	
 
 	<p>
 		<%= f.label :title %><br /><br>

@@ -26,7 +26,7 @@ Rails.application.routes.draw do
 
   post  "/courses/:id/units", to: "units#create"
   post  "/courses/:id/units/new", to: "units#create"
-  post  "/units/", to: "units#create"
+  post  "/units/:id", to: "units#create"
 
   
 
