@@ -1,69 +1,25 @@
 class UnitsController < ApplicationController
-  
-  
   before_action :set_unit, only: [:destroy, :update, :edit, :create, :new, :show]
   
   def show
-    # @unit = Unit.find(params[:id])
-    # @course = Course.find(params[:course_id])
-
-    # @units = @course.units.find(params[:id])
-    # @units = Unit.all
     @unit = Unit.find(params[:id])
   end
- 
- 
- 
- 
+  
   def index
-   # @course = Course.new(course_params)
-  #  @unit = @course.units.new(unit_params
-     @units = Unit.all
-    # @courses = Course.all
-
+    @units = Unit.all
   end
-
   
   def new
-    # @course = Course.new
-    @unit = Unit.new
+    @course = Course.new
+    @course.units.build
   end
-  
-
-
-  # def create
-  #   @course =Course.find(params[:id])
-  #   @unit = @course.units.build(unit_params)
-  #   binding.pry
-  #   @unit.save
-  #   if @unit.save
-  #     redirect_to course_path(@course)
-  #   else
-  #     render 'new'
-  #   end
-  # end
 
   def create
-    #  @course = Course(course_params)
-    #  @course = Course.find(params[:id])
-    # @unit = @course.units.build(unit_params)
-    # @unit.save
+    @course = Course.find(params[:id])
+    @unit = @course.units.create(unit_params) 
+    @unit.save
 
-    # @unit = Unit.find(params[:id])
-   
-    #  @unit.save(unit_params)
-
-    #  @profile = @user.profile.build
-
-    #  @unit = @course.units.build(unit_params)
-    #  @unit.save
-
-
-      @course = Course.find(params[:course_id])
-      @unit = @course.units.create(unit_params)
-    
-    #  redirect_to courses_path(@course)
-     redirect_to root_path
+     redirect_to course_path(@course)
   end
 
 
@@ -75,14 +31,8 @@ class UnitsController < ApplicationController
   end
 
   def update
-    # @unit = @course.units.update(unit_params)
-    # @unit = @course.units.find(params[:id])
     @unit = Unit.find(params[:id])
-   
-     @unit.update(unit_params)
-    
-    
-    
+    @unit.update(unit_params)
     
     redirect_to course_path(@course)
   end
@@ -95,43 +45,16 @@ class UnitsController < ApplicationController
     redirect_to course_path(@course)
   end
 
-  # private
-
-  # def unit_params
-    # params.require(:unit).permit(:title, :body)
-  # end
-
-
-  # private
-    # def unit_params
-      #  params.require(:unit_id).permit(:title, :body)
-      #params.permit(:title, :body)
-    # end
-
-    # def course_params
-      # params.permit(:title, :volume)
-     # binding.pry
-      # params.require(:course_id).permit(:id, :title, :volume, :price, :active)
-    # end
-    # def set_course
-      # binding.pry
-      #@course = Course.find(params[:course_id])
-      # @course = Course.find(params[:id])
-      # @course = Course.find(params[:course_id])
-      # @course = Course.find(params[:id])
-    # end
-# end
 
 private
 
 def set_unit
   @course = Course.find(params[:course_id])
-  # @course = Course.find(params[:id])
-  # @course = Course.find(2)
 end
 
 def unit_params
-  params.require(:unit).permit(:title, :body)
+  # params.require(:unit).permit(:title, :body)
+  params.permit(:title, :body)
 end
 
 end

@@ -1,49 +1,10 @@
 <h1>New unit</h1> <br>
 
-<%# <%= form_for(@comment, url: comments_path) do |f| %> 
-
-<%# <%= form_with(model: @unit, method: :post) do |f| %> 
-
-
- 
-
-<%# # <%# <%= form_for(@unit, url: [@unit, { course: params[:course] }]) do |f|  %>
-
-<%# # <%# <%= form_for :course, url: course_units_url(@unit) do |f|  %>
-
-<%# <%= form_for([@course, @course.units.new]) do |f| %> 
-
-
-
-<%# <%= form_with model: [ @course, @course.units.build ] do |f| %> 
-
-<%# <%= form_for :course, url: new_course_unit_path(@unit), method: :post do |f| %>  
-
-<%# <%= form_with([course: @course, unit: @unit]) do |f| %>
-
-<%# <%= form_with(unit: @unit, method: :post) do |f| %> 
-
-<%# # <%# <%= form_with url: new_course_unit_path, method: "post" do |f|  %>
-
-  <%# <%= form_with(model: @unit, method: :post) do |f| %> 
-
-  <%# <%= form_for(@unit, method: :post) do |f| %>
-
-  
-
-	<%# <%= form_for :unit, url: new_course_unit_path do |f| %>
-
-	<%# <%= form_with url: course_units_path, method: "post" do |f| %> 
-
-	<%# <%= form_with(model: @unit, method: :post) do |f| %> 
-
-	<%# <%= form_for @hotel.ratings.find_or_create_by(user_id: user_id) do |f| %>  
-
-	  <%= form_with(model: @unit, url: "/courses/#{@course.id}/units/" , method: "post") do |f| %>
+		<%= form_with(model: @unit, method: :post) do |f|  %>
+		<%= f.select :course_id, Course.all.collect{ |s| [s.title, s.id] } %>
 
 	  <%# <% = form_for @unit do |f| %>
   <%# = f.collection_select :course_id, Course.all, :id, :name, :prompt => true %>
-	
 
 	<p>
 		<%= f.label :title %><br /><br>
@@ -61,10 +22,10 @@
 	</p>
 
 
-<% end %>  
-<br>
-<div>
-  <%= button_to 'Back', course_units_path, method: :get %>
-</div>
+	<% end %>  
+	<br>
+	<div>
+  	<%= button_to 'Back', course_units_path, method: :get %>
+	</div>
 
 
