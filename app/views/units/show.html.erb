@@ -3,7 +3,10 @@
 <%# <p><%= @course.volume</p>  %>
 
 <br>
-<h2>Unit <%= @unit.id %></h2>
+<%# <h2>Unit <%= @unit.id</h2>  %>
+
+<h2>Unit <%= @course.unit_ids %></h2>
+
 <br>
 <%# <% @course.units.each do |unit| %> 
   <p>
@@ -42,7 +45,7 @@
 
 <br>
 <li>
-   <%= button_to 'Back to the course', course_path(@course), method: :get %>
+   <%= button_to 'Back to the course', courses_path(@course), method: :get %>
   
   </li>
   </ul>
