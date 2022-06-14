@@ -3,42 +3,29 @@ Rails.application.routes.draw do
 
   root "courses#index"
 
-  # get 'units/index'
- 
-  get "/courses", to: "courses#index"
+  # get "/courses", to: "courses#index"
   get "/units", to: "units#index"
+  # get "/units", to: "units#new"
+   
+  # rout for create  new unit
+  post "/units", to: "units#create"
   
   
-  patch '/courses/:id/edit', to: 'courses#edit'
   
-  # #get "/courses/index"
-  
-  # get "/courses/:id", to: "courses#show"
-  # get "/units/:id",   to: "units#show"
+  # patch '/courses/:id/edit', to: 'courses#edit'
 
-  patch "/courses/:id", to: "courses#show"
-  post  "/courses/:id", to: "courses#edit"
-  put  "/courses/:id/edit", to: "courses#edit"
+  # patch "/courses/:id", to: "courses#show"
+  # post  "/courses/:id", to: "courses#edit"
+  # put  "/courses/:id/edit", to: "courses#edit"
   
-  get 'courses/:id/edit', to: 'courses#edit', as: 'edit_course' # edit
-  patch 'courses/:id', to: 'courses#update' # update (as needed)
-  put 'courses/:id', to: 'courses#update' # update (full replacement)
+  # get 'courses/:id/edit', to: 'courses#edit', as: 'edit_course' # edit
+  # patch 'courses/:id', to: 'courses#update' # update (as needed)
+  # put 'courses/:id', to: 'courses#update' # update (full replacement)
 
   post  "/courses/:id/units", to: "units#create"
   post  "/courses/:id/units/new", to: "units#create"
+  post  "/courses/:id/units/new", to: "units#new"
   post  "/units/:id", to: "units#create"
-
-  
-
-  # get "/courses/:id", to: "courses#index"
-  # get "/units/:id",   to: "units#index"
-
-
-  # get "/courses/:id", to: "courses#create"
-  # get "/units/:id",   to: "units#create"
-
-
-  #get '/courses/:id', to: 'courses#show', as: 'course'
 
   resources :courses do
       resources :units

@@ -1,10 +1,19 @@
 <h1>New unit</h1> <br>
+		
+		<%# <%= form_with(model: @unit, method: :post) do |f|  %> 
+		<%# <%= f.select :course_id, Course.all.collect{ |s| [s.title, s.id] } %> 
+		
 
-		<%= form_with(model: @unit, method: :post) do |f|  %>
-		<%= f.select :course_id, Course.all.collect{ |s| [s.title, s.id] } %>
+	  <%# <%= form_for @unit do |f| %> 
+  <%# <%= f.collection_select :course_ids, Course.all, :id, :title, :body => true %>  
 
-	  <%# <% = form_for @unit do |f| %>
-  <%# = f.collection_select :course_id, Course.all, :id, :name, :prompt => true %>
+
+<%= form_for(@unit) do |f| %>
+  <div class="field">
+    <%= f.label :course_ids %>
+    <%= f.collection_select :course_ids, Course.all, :id, :title, multiple: true %>
+ 
+ </div>
 
 	<p>
 		<%= f.label :title %><br /><br>
@@ -25,7 +34,7 @@
 	<% end %>  
 	<br>
 	<div>
-  	<%= button_to 'Back', course_units_path, method: :get %>
+  	<%# <%= button_to 'Back', course_units_path, method: :get %> 
 	</div>
 
 

@@ -48,8 +48,8 @@ class CoursesController < ApplicationController
           # if @course.update_attributes(course_params)
             if @course.update(course_params)
             
-            @course.errors.messages.inspect
-            Rails.logger.info(@course.errors.messages.inspect)
+            # @course.errors.messages.inspect
+            # Rails.logger.info(@course.errors.messages.inspect)
             
           # success message
           flash[:success] = 'Course updated successfully'
@@ -58,6 +58,8 @@ class CoursesController < ApplicationController
         else
           # error message
           flash.now[:error] = 'Error: Course could not be updated'
+          @course.errors.messages.inspect
+          Rails.logger.info(@course.errors.messages.inspect)
           # render edit
           render :edit #, locals: { question: question }
     
@@ -103,7 +105,7 @@ class CoursesController < ApplicationController
   private
 
   def course_params    
-    params.require(:course).permit(:title, :description, :volume, :price, :active, :unit_ids)
+    params.require(:course).permit(:title, :description, :volume, :price, :active, unit_ids: [])
   end
 
   def set_course

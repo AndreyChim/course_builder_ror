@@ -91,7 +91,7 @@
 </div>
 <div>
   <%# <% @course.units.each do |unit| %>
-   <% @course.units.each do |unit| %>
+   <% @units.each do |unit| %>
     <h4 class="subtitle is-4"><%= link_to unit.title , "/courses/#{@course.id}/units/#{unit.id}" %></h4>
   <% end %>
 </div>
