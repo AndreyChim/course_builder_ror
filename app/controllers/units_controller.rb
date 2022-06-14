@@ -1,18 +1,29 @@
 class UnitsController < ApplicationController
-  #  before_action :set_unit, only: [:destroy, :update, :edit, :create, :new, :show]
-   before_action :set_unit, except: [:destroy, :update, :edit, :create, :new, :show]
+   before_action :set_unit, only: [:destroy, :update, :edit, :create, :new, :show]
+  #  before_action :set_unit, except: [:destroy, :update, :edit, :create, :new, :show]
   
+  def index
+    @course = Course.find_by(id: params[:course_id])
+    @units = @course.units
+  end 
+
+
   # def new
     # @course = Course.new
     # @course.units.build
   # end
   
-  def new
-    @course = Course.new
-     @unit = Unit.new
+  # def new
+    # @course = Course.new
+    #  @unit = Unit.new
     # @unuts = Unit.all
 
     # @unit = @course.units.build(unit_params)
+  # end
+
+  def new
+    @course = Course.find(params[:course_id])
+    @unit = @course.units.build
   end
   def show
     # @course = Course.find(params[:id])
@@ -22,9 +33,9 @@ class UnitsController < ApplicationController
     # @unit = @course.units.find(params[:id])
   end
   
-  def index
-    @units = Unit.all
-  end
+  # def index
+    # @units = Unit.all
+  # end
   
     
 
@@ -125,9 +136,17 @@ def set_unit
   # @course = @unit.courses.find(params[:id])
   # @unit = @course.units.find(params[:id])
 
-  @course = Course.find(params[:course_id])
+  # @post = Post.find(params[:comment][:id])    
+  # @comments = @post.comments.create(params[:comment])
+
+  # @course = Course.find(params[:course_id])
+
+  # @course = Course.find(params[:id])
+  # @course = Course.find(1)
+
+
   # @unit = @course.units.find(params[:id])
-  # @unit = Unit.find(params[:unit_id])
+  @unit = Unit.find(params[:id])
 
 
   

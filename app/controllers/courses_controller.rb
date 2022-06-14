@@ -70,8 +70,10 @@ class CoursesController < ApplicationController
   end
 
   def edit
+
           
       @course = Course.find(params[:id])
+      @unit = Unit.new
       respond_to do |format|
         format.html { render :edit}  #, locals: { @course: @course } }
       end
