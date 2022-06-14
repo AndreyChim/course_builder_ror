@@ -1,24 +1,22 @@
-require 'rails_helper'
+# require 'rails_helper'
 
-RSpec.describe "units/index" do
-  context "displays all the units" do
-# RSpec.describe "units/index.html.erb", type: :view do
-  # pending "add some examples to (or delete) #{__FILE__}"
+# RSpec.describe "units/index" do
+#   context "displays all the units" do
 
-  it "displays all the units" do
-    assign(:units, [
-      Unit.create!(:title => "title", :body => "body")
+#   it "displays all the units" do
+#     assign(:units, [
+#       Unit.create!(:title => "title", :body => "body")
      
-    ])
+#     ])
 
-    render
+#     render
 
-    expect(rendered).to match /title/
+#     expect(rendered).to match /title/
  
-  end
+#   end
 
-end
+# end
 
-end
+# end
 
 

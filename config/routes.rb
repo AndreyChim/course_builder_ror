@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   # get "/courses", to: "courses#index"
   get "/units", to: "units#index"
+  
   # get "/units", to: "units#new"
    
   # rout for create  new unit

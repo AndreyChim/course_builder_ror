@@ -110,25 +110,27 @@ private
 def set_unit
   #  @course = Course.find(params[:course_id])
   #  @course = Course.find(1)
-  # @course = Course.find(params[:id])
-  # @course = @unit.courses.find(params[:id])
-  # @unit = @course.units.find(params[:id])
-  #  @course = Course.find(params[:id])
-  # @unit = @course.units.find(params[:id])
-  
-  # @units = Unit.find(@course.unit_ids)
 
+  # ActiveRecord::RecordNotFound: Couldn't find Course without an ID
+  #  @course = Course.find(params[:id])
+
+  # @units = Unit.find(@course.unit_ids)
   # @courses = Course.find(@unit.course_ids)
 
-  # @course = @unit.courses.find(1)
-  # @unit = @course.units.find(1)
+  #  @course = @unit.courses.find(1)
+  #  @unit = @course.units.find(1)
 
-   
-  @course = @unit.courses.find(params[:id])
-  @unit = @course.units.find(params[:id])
+  
+  # рабочий вариант для добавл и редактир модуля
+  # @course = @unit.courses.find(params[:id])
+  # @unit = @course.units.find(params[:id])
 
+  @course = Course.find(params[:course_id])
   # @unit = @course.units.find(params[:id])
   # @unit = Unit.find(params[:unit_id])
+
+
+  
 end
 
 def unit_params
