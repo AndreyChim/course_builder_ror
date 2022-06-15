@@ -5,119 +5,52 @@
 <br>
 <h2>Course <%= @course.id %></h2>
 <br>
-<%# <% @course.units.each do |unit| %> 
-  <p>
-    <strong>Title:</strong>
-    <%= @course.title %>
-  </p>
-
-  <p>
-    <strong>Description:</strong>
-    <%= @course.description %>
-  </p>
-  
-  <p>
-    <strong>Volume:</strong>
-    <%= @course.volume %>
-  </p>
-
-  <p>
-    <strong>Price:</strong>
-    <%= @course.price %>
-  </p>
-<%# <% end %> 
-
-<%# <h2>Add a unit:</h2>
-<%= form_with model: [ @course, @course.units.build ] do |form| %>
-  <%# <p>
-    <%= form.label :title %>
-    <%# <%= form.text_field :title %> 
-  <%# </p> %>
-  <%# <p> %>
-    <%# <%= form.label :volume %>
-    <%# <%= form.text_field :volume %> 
-  <%# </p> %>
-  <%# <p> %>
-    <%# <%= form.submit %> 
-  <%# </p> %>
-<%# <% end %> 
-<br>
-<br>
-<ul>
-  <li><%= link_to "Edit", edit_course_path(@course),  data: {
-                    turbo_method: :get
-                    
-                  } %></li>
-  <br>
-  <li><%= link_to "Destroy", course_path(@course), data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
-                  } %></li>
-</ul>
- <br>
- <br>
-<div class="columns">
-  <div class="column">
-    <h4 class="subtitle is-4 is-pulled-left">List of units:</h4>
+<<div class="ml-5 mr-5">
+  <div class="columns">
+    <div class="column">
+      <h2 class="title is-pulled-left">Курс:</h2>
+    </div>
+    <div class="column is-one-fifth">
+      <div>
+        <%= button_to 'Редактировать', edit_course_path(@course), method: :get, class: "button is-link" %>
+      </div>
+      <div class="mt-2">
+        <%= button_to 'Вернуться', courses_path, method: :get, class: "button is-link" %>
+      </div>
+    </div>
   </div>
 
-  <hr class="mt-3">
+  <div class="downline"></div>
 
-  <div class="units blocks">
+  <div>
+    <h2 class="title"><%= @course.title %></h2>
+  </div>
 
-  <%# <% @course.units.each do |unit| %> 
-  <%# <% @units.each do |unit| %>
-    <%# <div class="block"> %>
+  <p class="is-italic has-text-weight-light"><%= @course.volume %></p>
+  <p class="is-italic has-text-weight-light"><%= "Стоимость: #{@course.price}" %></p>
+  <p class="is-italic has-text-weight-light">Описание курса:</p>
+  <p class="is-italic has-text-weight-light"><%= @course.description %></p>
 
-      <%# <div class="columns"> %>
-        <%# <div class="column is-four-fifths"> %>
-          <%# <p class="columns">Body <%= unit.body</p> %> 
-          <%# <a class="is-size-5 columns" href="/courses/#{@course.id}/units/#{unit.id}"><%= unit.title</a> %> 
-        <%# </div> %>
-        
-      <%# </div> %>
-
-    <%# </div> %>
-  <%# <% end %>
-           
-    
-
-  <%# <div class="column is-one-fifth"> %>
-   
-
-      <%# <%= button_to '+New unit', new_course_unit_path(@unit), method: :get %> 
-    <%# </div> %>
+  <div class="columns">
+    <div class="column">
+      <h4 class="subtitle is-4 is-pulled-left">Список модулей:</h4>
+    </div>
+    <div class="column is-one-fifth">
+      <div>
+        <%= button_to '+Новый модуль', new_course_unit_path(@course), method: :get, class: "button is-link" %>
+      </div>
+    </div>
+  </div>
+  <div>
+    <% @course.units.each do |unit| %>
+      <h4 class="subtitle is-4"><%= link_to unit.name , "/courses/#{@course.id}/units/#{unit.id}" %></h4>
+    <% end %>
+  </div>
+  <div class="mt-5">
+      <div>
+      <%= button_to 'Удалить курс', course_path(@course), method: :delete, form: {data: {turbo_confirm: 'Are you sure?'}}, class: "button is-focused" %>
+    </div>
   </div>
 </div>
-<div>
-  <%# <% @course.units.each do |unit| %>
-   <% @units.each do |unit| %>
-    <h4 class="subtitle is-4"><%= link_to unit.title , "/courses/#{@course.id}/units/#{unit.id}" %></h4>
-  <% end %>
-</div>
- <br>
-  <br>
-
-<ul>
-  <li>
-  <form method="get" action="/courses/course.id/units/new"> 
-     <a
-            href= <%= "/courses/#{@course.id}/units/new" %>
-
-            target="_blank"
-            class="btn btn-primary"
-          >
-          New unit 
-     </form>
-  
-  </li>
-  <br>
-  <li>
-   <%= button_to 'Back to the list of courses', courses_path, method: :get %>
-  
-  </li>
-</ul>
-     </div>
-
 
 

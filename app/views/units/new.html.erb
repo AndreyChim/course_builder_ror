@@ -1,40 +1,37 @@
-<h1>New unit</h1> <br>
-		
-		<%# <%= form_with(model: @unit, method: :post) do |f|  %> 
-		<%# <%= f.select :course_id, Course.all.collect{ |s| [s.title, s.id] } %> 
-		
+<div class="ml-5 mr-5">
+  <h2 class="title is-1">Новый модуль</h2>
+  <div class="columns">
+    <div class="column is-four-fifths">
+      <%= form_with url: course_units_path, method: "post" do |form| %>
+      <div class="field">
+        <%= form.label :title, "Название модуля" %>
+        <div class="control">
+          <%= form.text_area :title, class: "textarea" %>
+        </div>
+      </div>
 
-	  <%# <%= form_for @unit do |f| %> 
-  <%# <%= f.collection_select :course_ids, Course.all, :id, :title, :body => true %>  
+      <div class="field">
+        <%= form.label :body, "Содержание модуля" %>
+        <div class="control">
+          <%= form.text_area :body, class: "textarea", rows: 15 %>
+        </div>
+      </div>
+    </div>
 
-
-<%= form_for(@unit) do |f| %>
-  <div class="field">
-    <%= f.label :course_ids %>
-    <%= f.collection_select :course_ids, Course.all, :id, :title, multiple: true %>
- 
- </div>
-
-	<p>
-		<%= f.label :title %><br /><br>
-		<%= f.text_area :title, rows: 3, class: "form-control", placeholder: "Text input", style: "width: 400px" %>
-	</p>
-    <br>
-	<p>
-		<%= f.label :body %><br /><br>
-		<%= f.text_area :body, rows: 5, class: "form-control", placeholder: "Text input", style: "width: 400px" %>
-	</p>
-    <br>
-
-	<p>
-		<%= f.submit"Save Unit", class: "btn btn-primary"  %><br>
-	</p>
-
-
-	<% end %>  
-	<br>
-	<div>
-  	<%# <%= button_to 'Back', course_units_path, method: :get %> 
-	</div>
-
-
+    <%# <div class="column">
+      <div class="field">
+        <%= form.label :position, "Позиция (номер)" %>
+        <%# <div class="control"> %>
+          <%# <%= form.text_field :position, class: "input" %> 
+        <%# </div> %>
+      <%# </div> %>
+    <%# </div> %>
+  </div>
+  <div>
+    <%= form.submit "Сохранить", class: "button is-link" %>
+    <% end %>
+  </div>  
+  <div class="mt-2">
+  <%= button_to 'Вернуться', course_path(@course), method: :get, class: "button is-link" %>
+  </div>
+</div>

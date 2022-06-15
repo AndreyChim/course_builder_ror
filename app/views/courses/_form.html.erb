@@ -1,0 +1,38 @@
+<div class="columns">
+  <div class="column is-four-fifths">
+    <%= form_with model: @course do |form| %>
+    <div class="field">
+      <%= form.label :title, "Название курса" %>
+      <div class="control">
+        <%= form.text_area :title, class: "textarea" %>
+      </div>
+    </div>
+
+    <div class="field">
+      <%= form.label :description, "Описание курса" %>
+      <div class="control">
+      <%= form.text_area :description, class: "textarea", rows: 15 %>
+      </div>
+    </div>
+  </div>
+
+  <div class="column">
+    <div class="field">  
+      <%= form.label :volume, "Объём в часах" %>
+      <div class="control">
+        <%= form.text_field :volume, class: "input" %>
+      </div>
+    </div>
+
+    <div class="field">
+      <%= form.label :price, "Стоимость" %>
+        <div class="control">
+          <%= form.text_field :price, class: "input" %>
+        </div>
+    </div>    
+  </div>
+</div>
+<div>
+  <%= form.submit "Сохранить", class: "button is-link" %>
+</div>
+<% end %>
