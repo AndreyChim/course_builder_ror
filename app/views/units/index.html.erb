@@ -1,19 +1,5 @@
-<%# <div class="units blocks"> %>
-
-  <%# <% @units.each do |unit| %> 
-  <%# <% @course.units.each do |unit| %>
-  <%# <% @units.each do |unit| %> 
-    <%# <div class="block"> %>
-
-      <%# <div class="columns"> %>
-        <%# <div class="column is-four-fifths"> %>
-          <%# <p class="columns">Объем <%= unit.body</p>  %>
-          <%# <a class="is-size-5 columns" href="#"><%= unit.title</a>  %>
-        <%# </div> %>
-        
-      <%# </div> %>
-
-    <%# </div> %>
-  <%# <% end %> 
-
-<%# </div> %>
+<div class="content">
+  <% @units.each do |unit| %>
+    <h5> <%= unit.title %></h5>          
+  <% end %>
+</div>
