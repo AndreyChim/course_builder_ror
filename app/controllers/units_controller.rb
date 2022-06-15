@@ -22,8 +22,25 @@ class UnitsController < ApplicationController
   # end
 
   def new
-    @course = Course.find(params[:course_id])
-    @unit = @course.units.build
+    # @course = Course.find(params[:course_id])
+    # @course = Course.new
+    # @course.save
+    @course = Course.find(course_params)
+    # binding.irb
+    # @unit = @course.units.create(unit_params) 
+    
+    # @unit = @course.units.build
+    @unit = @course.units.create(unit_params) 
+    # binding.irb
+
+    
+
+    #  @course = Course.find(params[:id])
+    # @course = Course.find(1)
+    # params[:unit][:course_ids] ||=[]
+    # @unit = @course.units.create(unit_params) 
+
+
   end
   def show
     # @course = Course.find(params[:id])
@@ -42,7 +59,10 @@ class UnitsController < ApplicationController
   def create
     # @course = Course.new(params[:course])
 
-    @course = Course.first
+    # @course = Course.first
+
+    @course = Course.find(course_params)
+    binding.irb
     #  @course = Course.find(params[:id])
     # @course = Course.find(1)
     # params[:unit][:course_ids] ||=[]
@@ -142,18 +162,36 @@ def set_unit
   # @course = Course.find(params[:course_id])
 
   # @course = Course.find(params[:id])
+  #
+  # params =  
   # @course = Course.find(1)
+  # @course = Course.find(params[:course_id])
 
+  # @course = Course.new(course_params)
+  # @course.save
+
+  @course = Course.find(course_params)
+   # binding.irb
 
   # @unit = @course.units.find(params[:id])
-  @unit = Unit.find(params[:id])
+  # @unit = Unit.find(params[:id])
 
 
-  
+end
+
+def course_params    
+  # params.require(:course_id).permit(:title, :description, :volume, :price, :active, unit_ids: [])
+  params[:course_id]
+ # binding.irb
 end
 
 def unit_params
-  params.require(:unit).permit(:title, :body, course_ids: [])
+  #  params.require(:unit).permit(:title, :body, course_ids: [])
+  #binding.irb 
+  params.permit(:title, :body, course_ids: [])
+  # binding.irb
+  # params.require(:unit).permit(:title, :body)
+  
   # params.permit(:title, :body, course_ids: [])
 end
 
