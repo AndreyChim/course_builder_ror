@@ -1,5 +1,5 @@
 class CoursesController < ApplicationController
-  before_action :set_course, only: [:show, :edit, :update, :destroy]
+  # before_action :set_course, only: [:show, :edit, :update, :destroy]
   # before_action :set_course, only: [:edit, :update, :destroy]
   # skip_before_action :verify_authenticity_token
   
@@ -21,6 +21,7 @@ class CoursesController < ApplicationController
   def show
     # @unit = Unit.find(params[:id])
      @units =  Unit.all
+    #  @courses = Course.all
      @course = Course.find(params[:id])
   end
 
@@ -54,7 +55,8 @@ class CoursesController < ApplicationController
           # success message
           flash[:success] = 'Course updated successfully'
           # redirect to index
-          redirect_to course_url
+          # redirect_to course_url
+          redirect_to root_path
         else
           # error message
           flash.now[:error] = 'Error: Course could not be updated'
@@ -80,29 +82,26 @@ class CoursesController < ApplicationController
 
     end
 
-  def destroy
-    # @course.destroy
-    # redirect_to courses_path
+    def destroy
+      
+      @course = Course.find(params[:id])
+      @course.destroy
+      @courses = Course.all
+      render 'courses/index'
+      
+      # redirect_to :action => :index 
+      # redirect_to action: :index
 
-    @course = Course.find(params[:id])
-    # respond_to block
-    respond_to do |format|
-      format.html do
-        if @course.destroy
-          # success message
-          flash[:success] = 'Course deleted successfully'
-          # redirect to index
-          redirect_to course_url
-        else
-          # error message
-          flash.now[:error] = 'Error: Course could not be deleted'
-          # render edit
-          render :edit #, locals: { question: question }
+      
+      end 
+
+      # redirect_url = (request.referer.include?("/courses/#{@course.id}") ? courses_url : :back)
+      # respond_to do |format|
+      #   format.html { redirect_to redirect_url }
+      #   format.json { head :no_content }
+      # end
     
-        end
-      end
-    end
-  end
+    
 
   private
 
@@ -110,9 +109,9 @@ class CoursesController < ApplicationController
     params.require(:course).permit(:title, :description, :volume, :price, :active, unit_ids: [])
   end
 
-  def set_course
+  # def set_course
   #  binding.pry
-    @course = Course.find(params[:id])
-  end
+    # @course = Course.find(params[:id])
+  # end
 
 end

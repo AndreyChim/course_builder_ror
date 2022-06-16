@@ -1,7 +1,18 @@
-<%= form_for(@course) do |f| %>
-  <div class="field">
-    <%= f.label :unit_ids %>
-    <%= f.collection_select :unit_ids, Unit.all, :id, :title, multiple: true %>
-  </div>
-  
-<% end %>
+<div class="units blocks">
+
+  <% @units.each do |unit| %> 
+
+    <div class="block">
+
+      <div class="columns">
+        <div class="column is-four-fifths">
+          <%# <p class="columns"><%= unit.body</p>   %>
+           <a class="is-size-5 columns" href="#"><%= unit.title %></a>  
+        </div>
+        
+      </div>
+
+    </div>
+  <% end %>
+
+ </div> 

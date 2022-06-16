@@ -1,0 +1,7 @@
+<%= form_for(@course) do |f| %>
+  <div class="field">
+    <%= f.label :unit_ids %>
+    <%= f.collection_select :unit_ids, Unit.all, :id, :title, multiple: true %>
+  </div>
+  
+<% end %>

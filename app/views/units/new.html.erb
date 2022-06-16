@@ -17,9 +17,10 @@
     <%# <%= f.collection_select :course_ids, Course.all, :id, :title, multiple: true %> 
  
   <%# </div>  %>
-  <p>
-    <%= f.hidden_field(:id, @course.id) if @course.persisted? %>
-  </p>
+
+  <%# <p> %>
+    <%# <%= f.hidden_field(:id, @course.id) if @course.persisted? %> 
+  <%# </p> %>
     <br>
 	<p>
 		<%= f.label :title %><br /><br>

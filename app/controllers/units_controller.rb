@@ -6,7 +6,8 @@ class UnitsController < ApplicationController
     # @course = Course.find_by(id: params[:course_id])
     # binding.irb
     #  @course = Course.find(course_id_params)
-     @course = Course.first
+    #  @course = Course.first
+    # @course = Course.find(params[:unit][:course_ids])
     # @units = @course.units
     @units = Unit.all
   end 
@@ -26,8 +27,8 @@ class UnitsController < ApplicationController
   # end
 
   def new
-    # @course = Course.find(params[:course_id])
-    @course = Course.new
+    @course = Course.find(params[:course_id])
+    # @course = Course.new
     # @course.save
     
     # @course = Course.find(course_id_params)
@@ -64,7 +65,8 @@ class UnitsController < ApplicationController
     
 
   def create
-     @course = Course.create(params[:course])
+    #  @course = Course.create(params[:course])
+     @course = Course.find(params[:unit][:course_ids])
     #  @course.save
     #  @course = Course.first
     
@@ -147,8 +149,8 @@ class UnitsController < ApplicationController
 
   def edit
     
-    @unit = Unit.find(params[:id])
-    # @unit = @course.units.find(params[:id])
+    # @unit = Unit.find(params[:id])
+    @unit = @course.units.find(params[:id])
     respond_to do |format|
       format.html { render :edit}  #, locals: { @course: @course } }
     end
@@ -159,10 +161,15 @@ class UnitsController < ApplicationController
     @unit = Unit.find(params[:id])
     if @unit.present?
       @unit.destroy
-      redirect_to course_url
+      @units = Unit.all
+      render 'units/index'
+      
+      # redirect_to root_path
+      
+      # redirect_to action: :index
     end
     # redirect_to courses_path(@course)
-    redirect_to course_url
+    # redirect_to course_url
   end
 
 
