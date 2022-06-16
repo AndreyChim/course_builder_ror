@@ -11,4 +11,4 @@
   Course.create(title: "Стратегическое управление в образовании: методология и   кейсы проектных решений", description: "description", volume: "24 час. 6 модулей", price: "0", active: true)
 
   
-  Unit.create(body: "Content of the body", title: "Title", active: true)
+  Unit.create(title: "unit1", body: "body1", course_ids: "1", active: true)

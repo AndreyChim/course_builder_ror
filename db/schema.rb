@@ -29,20 +29,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_06_09_012517) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "unit_courses", force: :cascade do |t|
+  create_table "units_courses", id: false, force: :cascade do |t|
     t.integer "unit_id", null: false
     t.integer "course_id", null: false
+   # t.integer "units_id"
+   # t.integer "courses_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["course_id"], name: "index_unit_courses_on_course_id"
-    t.index ["unit_id"], name: "index_unit_courses_on_unit_id"
+    # t.index ["courses_id"], name: "index_units_courses_on_courses_id"
+    # t.index ["units_id"], name: "index_units_courses_on_units_id"
   end
 
-  
-
-  add_foreign_key "unit_courses", "courses"
-  add_foreign_key "unit_courses", "units"
 end
-
-
-
