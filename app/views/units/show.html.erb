@@ -8,29 +8,46 @@
 <h2>Unit <%= @unit.id %></h2>
 
 <br>
-<div class="ml-5 mr-5">
-  <div class="columns">
-    <div class="column">
-      <h2 class="title is-pulled-left"><%= @unit.title %></h2>
-    </div>
-    <div class="column is-one-fifth">
-      <div>
-        <%= button_to 'Редактировать', edit_course_unit_path, method: :get, class: "button is-link" %>
-      </div>
-      <div class="mt-2">
-        <%= button_to 'Вернуться', course_path(@course), method: :get, class: "button is-link" %>
-      </div>
-    </div>
-  </div>
+<%# <% @course.units.each do |unit| %> 
+  <p>
+    <strong>Title:</strong>
+    <%= @unit.title %>
+  </p>
 
-  <div class="downline"></div>
-
-    <h2 class="title">Содержание модуля</h2>
-  <div class="content">
+  <p>
+    <strong>Body:</strong>
     <%= @unit.body %>
-  </div>
+  </p>
+  
 
-  <div class="mt-5">
-    <%= button_to 'Удалить модуль', course_unit_path, method: :delete, form: {data: {turbo_confirm: 'Are you sure?'}}, class: "button is-focused" %>
-  </div>
-</div>
+<%# <h2>Add a unit:</h2>
+<%= form_with model: [ @course, @course.units.build ] do |form| %>
+  <%# <p> %>
+    <%# <%= form.label :title<br>  %>
+    <%# <%= form.text_field :title %> 
+  <%# </p> %>
+  <%# <p> %>
+    <%# <%= form.label :body<br> %>
+    <%# <%= form.text_area :body %>
+  <%# </p> %>
+  <%# <p> %>
+    <%# <%= form.submit %> 
+  <%# </p> %>
+<%# <% end %>  
+<br>
+<ul>
+  <li><%= link_to "Edit", edit_course_unit_path(@unit) %></li>
+  <br>
+  <li><%= link_to "Destroy", course_unit_path(@unit), data: {
+                    turbo_method: :delete,
+                    turbo_confirm: "Are you sure?"
+                  } %></li>
+
+<br>
+<li>
+   <%= button_to 'Back to the course', courses_path(@course), method: :get %>
+  
+  </li>
+  </ul>
+
+

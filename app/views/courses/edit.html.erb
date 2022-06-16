@@ -1,13 +1,94 @@
 <h1>Edit course <%= "#{@course.id}" %></h1>
 <br>
 
+<%# <%= form_for :course, url: edit_course_path(@course), method: :patch do |f| %> 
 
-<div class="ml-5 mr-5">
-  <h2 class="title is-1">Редактирование курса</h2>
-  <div>
-    <%= render 'form' %>
-  </div>  
-  <div class="mt-2">
-    <%= button_to 'Вернуться', course_path(@course), method: :get, class: "button is-link" %>
-  </div>
+
+<%# <%= form_tag('/courses', method: :post, remote: true) do -%> 
+ <%# <%= fields_for :sale_qualifier do |ff| %>    
+   <%# <%= ff.fields_for :answer_attributes do |answer| %> 
+
+<%# <%= form_tag do %> 
+  <%# <%= form_tag "/courses/#{@course.id}/edit" do |f|%> 
+
+  <%# <%= form_tag("/courses/#{@course.id}", method: :patch, remote: true) do -%> 
+    <%# <%= fields_for :course_attributes  do |ff| %>
+	
+  
+
+<%# <%= form_with model: @course do |f| %> 
+<%# <%= form_with model: question, url: mc_question_path, method: :patch, local: true, scope: :mc_question do |f| %> 
+
+<%# <%= form_with model: @course, url: course_path, method: :patch, local: true, scope: :course do |f| %> 
+
+
+
+
+<%# <%= form_for :course, { url: :course, method: :patch } do |f| %> 
+
+<%= form_for :course, url: course_path(@course), method: :put do |f| %>
+
+	<p>
+		<%= f.label :title %><br />
+		<%= f.text_area :title, rows: 3, style: "width: 400px" %>
+	</p>
+
+	<p>
+       <%= f.label :description %><br />
+		<%= f.text_area :description, rows: 3, style: "width: 400px" %>
+    </p>
+
+	<p>
+		<%= f.label :volume %><br />
+		<%= f.text_field :volume %>
+	</p>
+	 
+	<p>
+		<%= f.label :price %><br />
+		<%= f.text_field :price %>
+	</p>
+
+	<p>
+		<%= f.submit %>
+	</p>
+
+<%# <% end %>
+<% end %>
+
+<br>
+<div>
+  <%= button_to 'Back', courses_path, method: :get %>
 </div>
+
+
+
+<%= form_for(@unit) do |f| %>
+  <div class="field">
+    <%= f.label :course_ids %>
+    <%= f.collection_select :course_ids, Course.all, :id, :title, multiple: true %>
+ 
+ </div>
+
+	<p>
+		<%= f.label :title %><br /><br>
+		<%= f.text_area :title, rows: 3, class: "form-control", placeholder: "Text input", style: "width: 400px" %>
+	</p>
+    <br>
+	<p>
+		<%= f.label :body %><br /><br>
+		<%= f.text_area :body, rows: 5, class: "form-control", placeholder: "Text input", style: "width: 400px" %>
+	</p>
+    <br>
+
+	<p>
+		<%= f.submit"Save Unit", class: "btn btn-primary"  %><br>
+	</p>
+
+
+	<% end %>  
+	<br>
+	<div>
+  	<%# <%= button_to 'Back', course_units_path, method: :get %> 
+	</div>
+
+

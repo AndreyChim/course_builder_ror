@@ -1,101 +1,179 @@
 class UnitsController < ApplicationController
-  before_action :set_unit, only: [:destroy, :update, :edit, :create, :new, :show]
-
-  def show
-    @unit = @course.units.find(params[:id])
-  end
-
+   before_action :set_unit, only: [:destroy, :update, :edit, :create, :new, :show]
+  #  before_action :set_unit, except: [:destroy, :update, :edit, :create, :new, :show]
+  
   def index
-  end
+    # @course = Course.find_by(id: params[:course_id])
+    # binding.irb
+    #  @course = Course.find(course_id_params)
+     @course = Course.first
+    # @units = @course.units
+    @units = Unit.all
+  end 
+
+
+  # def new
+    # @course = Course.new
+    # @course.units.build
+  # end
+  
+  # def new
+    # @course = Course.new
+    #  @unit = Unit.new
+    # @unuts = Unit.all
+
+    # @unit = @course.units.build(unit_params)
+  # end
 
   def new
-<<<<<<< HEAD
     # @course = Course.find(params[:course_id])
-    # @course = Course.new
+    @course = Course.new
     # @course.save
-    @course = Course.find(course_params)
+    
+    # @course = Course.find(course_id_params)
+    
     # binding.irb
     # @unit = @course.units.create(unit_params) 
     
-    # @unit = @course.units.build
-    @unit = @course.units.create(unit_params) 
-    # binding.irb
+    @unit = @course.units.build
+    # @unit = @course.units.create(unit_params) 
+      #binding.irb
 
-    
+    # @trip = Trip.new 
+    # @trip.itineraries.build 
 
     #  @course = Course.find(params[:id])
     # @course = Course.find(1)
     # params[:unit][:course_ids] ||=[]
     # @unit = @course.units.create(unit_params) 
 
-
   end
+
   def show
     # @course = Course.find(params[:id])
      @unit = Unit.find(params[:id])
     # @unit = @course.units.find(12) 
     # @course = Course.new
     # @unit = @course.units.find(params[:id])
-=======
-    @unit = Unit.new
->>>>>>> 8265fc95f2c8fec77529696b5459e89b35e05857
   end
   
+  # def index
+    # @units = Unit.all
+  # end
+  
+    
+
   def create
-<<<<<<< HEAD
-    # @course = Course.new(params[:course])
+     @course = Course.create(params[:course])
+    #  @course.save
+    #  @course = Course.first
+    
+    # binding.irb
+    # пробный вариант
+    # @course = Course.find(course_id_params)
+     @unit = @course.units.create(unit_params) 
 
-    # @course = Course.first
-
-    @course = Course.find(course_params)
-    binding.irb
+    
     #  @course = Course.find(params[:id])
     # @course = Course.find(1)
     # params[:unit][:course_ids] ||=[]
-    @unit = @course.units.create(unit_params) 
-    # @unit.save
+    
+     @unit.save
  
 
-    #  redirect_to course_path(@course)
+      redirect_to course_path(@course)
     
+  end
     #  @unit = Unit.create(unit_params)
 
-=======
-    @unit = @course.units.build(unit_params)
-    @unit.save
-    if @unit.save
->>>>>>> 8265fc95f2c8fec77529696b5459e89b35e05857
-      redirect_to course_path(@course)
-    else
-      render 'new'
-    end
-  end
+      # redirect_to course_path(@course)
+      # redirect_to root_path
 
-  def edit    
-  end
+        
+#   @unit = Unit.new(unit_params)
+
+#   # Find schoolclass from `schoolclass_id` and associate it to `@pupil`
+#   course = Course.find(params[:unit][:course_ids])  # Handle case when schoolclass not selected in form
+#   @unit.courses ||= [course]
+
+#   respond_to do |format|
+#     if @unit.save       
+#       format.html { redirect_to @unit, notice: 'Pupil was successfully created.' }
+#       format.json { render :show, status: :created, location: @unit }
+#     else
+#       format.html { render :new }
+#       format.json { render json: @unit.errors, status: :unprocessable_entity }
+#     end
+#   end
+# end
+  
+
+
+
+  # def update
+    
+    # @unit = Unit.find(params[:id])
+      # @unit.update(unit_params)
+
+    # redirect_to course_units_path(@unit)
+    # redirect_to root_path
+  # end
 
   def update
-    @unit = @course.units.update(unit_params)
     
-    redirect_to course_path(@course)
+    @unit = Unit.find(params[:id])
+  
+    respond_to do |format|
+      format.html do
+            if @unit.update(unit_params)
+          flash[:success] = 'Course updated successfully'
+
+          redirect_to course_url
+        else
+
+          flash.now[:error] = 'Error: Course could not be updated'
+          @unit.errors.messages.inspect
+          Rails.logger.info(@course.errors.messages.inspect)
+
+          render :edit #, locals: { question: question }
+    
+        end
+      end
+    end
+    
+  end
+
+
+
+  def edit
+    
+    @unit = Unit.find(params[:id])
+    # @unit = @course.units.find(params[:id])
+    respond_to do |format|
+      format.html { render :edit}  #, locals: { @course: @course } }
+    end
   end
 
   def destroy    
-    @unit = @course.units.find(params[:id])
+    # @unit = @course.units.find(params[:id])
+    @unit = Unit.find(params[:id])
     if @unit.present?
       @unit.destroy
+      redirect_to course_url
     end
-    redirect_to course_path(@course)
+    # redirect_to courses_path(@course)
+    redirect_to course_url
   end
 
-  private
 
-<<<<<<< HEAD
 private
 
 def set_unit
   #  @course = Course.find(params[:course_id])
-  #  @course = Course.find(1)
+  # раб вариант для сохранения в 1 курсе 
+  # @course = Course.find(1)
+
+
 
   # ActiveRecord::RecordNotFound: Couldn't find Course without an ID
   #  @course = Course.find(params[:id])
@@ -125,7 +203,7 @@ def set_unit
   # @course = Course.new(course_params)
   # @course.save
 
-  @course = Course.find(course_params)
+  # @course = Course.find(course_id_params)
    # binding.irb
 
   # @unit = @course.units.find(params[:id])
@@ -134,28 +212,20 @@ def set_unit
 
 end
 
-def course_params    
+def course_id_params    
   # params.require(:course_id).permit(:title, :description, :volume, :price, :active, unit_ids: [])
   params[:course_id]
  # binding.irb
 end
 
 def unit_params
-  #  params.require(:unit).permit(:title, :body, course_ids: [])
+    params.require(:unit).permit(:title, :body, course_ids: [])
   #binding.irb 
-  params.permit(:title, :body, course_ids: [])
+  # params.permit(:title, :body, :course_id, course_ids: [])
   # binding.irb
   # params.require(:unit).permit(:title, :body)
   
   # params.permit(:title, :body, course_ids: [])
 end
-=======
-  def set_unit
-    @course = Course.find(params[:course_id])
-  end
->>>>>>> 8265fc95f2c8fec77529696b5459e89b35e05857
 
-  def unit_params
-    params.permit(:title, :body)
-  end
 end

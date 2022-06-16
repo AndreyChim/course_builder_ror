@@ -1,14 +1,37 @@
 <h1>New course</h1>
 
-<div class="ml-5 mr-5">
-  <h2 class="title is-1">Новый курс</h2>
-  <div>
-    <%= render 'form' %>
-  </div>
-  <div class="mt-2">
-   <%= button_to 'Вернуться', courses_path, method: :get, class: "button is-link" %>
-  </div>
-</div>
+<%# = form_for @course, url: courses_path do |f|  %>
+
+<%# <%= form_with(model: @course, @unit, method: :post) do |f| %>  
+<%= form_with(model: @course, method: :post) do |f| %> 
+	<p>
+		<%= f.label :title %><br />
+		<%= f.text_area :title, rows: 3, class: "form-control", placeholder: "Text input", style: "width: 400px" %>
+	</p>
+	
+	<p>
+		<%= f.label :description %><br />
+		<%= f.text_area :description, rows: 5, class: "form-control", placeholder: "Text input", style: "width: 400px" %>
+	</p>
+
+	<p>
+		<%= f.label :volume %><br />
+		<%# <%= f.text_area :title, class: "form-control", rows: "6", style: "width: 400px" %> 
+		<%= f.text_field :volume, class: "form-control", style: "width: 400px" %>
+	</p>
+
+	<p>
+		<%= f.label :price %><br />
+		<%# <%= f.text_area :title, class: "form-control", rows: "6", style: "width: 400px" %> 
+		<%= f.text_field :price, class: "form-control", style: "width: 400px" %>
+	</p>
+
+	<p>
+		<%= f.submit"Save Course", class: "btn btn-primary"  %>
+	</p>
+
+
+<% end %>  
 
 <div>
   <%= button_to 'Back', courses_path, method: :get %>
