@@ -57,11 +57,14 @@
 
 <br>
 <div>
-  <%= button_to 'Back', courses_path, method: :get %>
+  <%= button_to 'Back to the course', course_path(@course), method: :get %>
 </div>
+<br>
+<br>
 
-
-
+Add a new unit
+<br>
+<br>
 <%= form_for(@unit) do |f| %>
   <div class="field">
     <%= f.label :course_ids %>
@@ -87,8 +90,9 @@
 
 	<% end %>  
 	<br>
+	
 	<div>
-  	<%# <%= button_to 'Back', course_units_path, method: :get %> 
+  		<%= button_to 'Back to the course', course_path(@course), method: :get %>
 	</div>
 
 

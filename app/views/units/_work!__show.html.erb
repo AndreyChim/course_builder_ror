@@ -2,7 +2,32 @@
 <h2>Unit <%= @unit.id %></h2>
 <br>
 
+<%# <%= form_for(@course) do |f| %> 
+		<%= form_for([@course, @course.units.build]) do |f| %>
 
+
+<p>
+		<%= f.label :title %><br />
+		<%= f.text_area :title, rows: 3, style: "width: 400px" %>
+	</p>
+
+	<p>
+       <%= f.label :body %><br />
+		<%= f.text_area :body, rows: 3, style: "width: 400px" %>
+    </p>
+
+
+
+<% end %>
+<%# <%= form_with(model: [@course, @unit]) do |f| %>  
+  <%# <div class="field"> %>
+    <%# <%= f.label :unit_ids %> 
+    <%# <%= f.collection_select :unit_ids, Unit.all, :id, :title, multiple: true %> 
+  <%# </div> %>
+  
+<%# <% end %> 
+
+<br>
 <ul>
   <%# <li><%= link_to "Edit", edit_course_unit_path(@unit) %>
 

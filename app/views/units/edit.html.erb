@@ -2,11 +2,18 @@
 <br>
 
 
-<%= form_for :unit, url: course_unit_path(@unit), method: :put do |f| %>
+<%# <%= form_for :unit, url: course_unit_path(@unit), method: :put do |f| %> 
 
-<%# <%= form_for @course do |f| %> 
-<%# <%= f.select :unut_ids, @units, :id, :title %> 
+<%# <%= form_for @course do |f| %>  
+<%# <%= f.select :unut_ids, @units, :id, :title %>  
 
+<%# <%= form_with(model: [@course, @unit]) do |f| %> 
+
+<%= form_with model: @unit, url: "/courses/#{@course.id}/units/#{@unit.id}", method: "put" do |f| %>
+
+<%# <%= form_for @unit do |f| %> 
+   
+<%= f.select :course_ids, Course.all.collect{ |s| [s.title, s.id] }   %>
 
 <%# <%= f.select :courses, Course.all.collect{ |s| [s.title, s.id] } %> 
 		<%# <%= f.select :course_id, Course.all.collect{ |s| [s.title, s.id] } %> 
@@ -39,5 +46,5 @@
 
 <br>
 <div>
-  <%= button_to 'Back', course_units_path, method: :get %>
+    <%= button_to 'Back to the course', course_path(@course), method: :get %>
 </div>
