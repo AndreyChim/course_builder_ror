@@ -38,7 +38,7 @@ RSpec.describe Unit, type: :model do
     end
 
     it "should return all active Units" do
-      expect((Unit.where(active: :true)).count).to eq(6)
+      expect((Unit.where(active: :true)).count).to eq(3)
     end
 
     it "should return all inactive Units" do
